@@ -10,7 +10,10 @@ Progetto per la progettazione e documentazione di un **workflow editoriale digit
 
 - **`relazione_esame.md`**: Relazione accademica completa redatta secondo il modello di relazione fornito su Ariel.
 - **`diagram.bpmn`**: Modello formale del processo editoriale in formato standard XML **BPMN 2.0 (ISO/IEC 19510:2013)** generato tramite [bpmn.io](https://bpmn.io).
-- **`diagram.svg`**: grafica vettoriale del diagramma BPMN 2.0.
+- **`img/`**: Cartella contenente le risorse grafiche e gli asset visivi del progetto:
+  - `diagram.svg`: Grafica vettoriale del diagramma BPMN 2.0 ad alta risoluzione.
+  - `LogoHeader.svg`: Sigillo/logo ufficiale dell'Università degli Studi di Milano integrato nella relazione.
+  - `nuovo_termine.png`, `modifica_termine.png`, `test1.png`, `pages_expl.png`: Screenshot dimostrativi dei test su GitHub Issue Forms e GitHub Pages.
 - **`DECISIONS.md`**: Registro pubblico delle decisioni editoriali (*Editorial Decision Records - EDR*), con la verbalizzazione delle delibere di approvazione, revisione o rigetto delle proposte terminologiche.
 - **`data/terms/*.md`**: Termini sorgente rappresentativi in formato **Markdown con frontmatter YAML conforme a W3C SKOS**.
 - **`scripts/`**:
@@ -46,12 +49,15 @@ python scripts/build_thesaurus.py
 start dist/index.html
 ```
 
-Per accedere al sito basta semplicemente cliccare su [questo link](https://g0ldenpin.github.io/editoria/) per accedere al deploy di GH Pages. 
+Per accedere al sito basta semplicemente cliccare su [questo link](https://g0ldenpin.github.io/editoria/) per accedere al deploy di GitHub Pages (consultabile anche dalla sezione *Deployments* della repository):
+
+![Deploy GitHub Pages](./img/pages_expl.png)
+
 Sono stati testati i template delle ISSUE su GitHub e, come da foto allegate, funzionano perfettamente. I risultati dei test si possono consultare nelle due issue aperte. La pubblicazione delle issue approvate avviene tramite `issue_to_term.py`.
 
-![Aggiunta Termine](./nuovo_termine.png)
-![Modifica Termine](./modifica_termine.png)
-![Test 1](./test1.png)
+![Aggiunta Termine](./img/nuovo_termine.png)
+![Modifica Termine](./img/modifica_termine.png)
+![Test 1](./img/test1.png)
 ---
 
 ### Consegne dell'Esercizio d'Esame

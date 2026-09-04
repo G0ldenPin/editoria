@@ -9,6 +9,8 @@ version: 1.0
 kind: Document
 ---
 
+![Logo UNIMI](./img/LogoHeader.svg)
+
 # Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
 ### Armonizzazione delle dimensioni normativa, tecnico-operativa e concettuale attraverso Git, W3C SKOS e pubblicazione continua
 
@@ -116,9 +118,9 @@ L'acquisizione delle fonti può essere automatizzata solo se la fonte stessa ris
 ### Gestione documentale
 Il flusso di gestione documentale è stato modellato in conformità con lo standard internazionale **BPMN 2.0 (Business Process Model and Notation - ISO/IEC 19510:2013)** promosso da OMG. 
 
-La modellazione formale è stata realizzata tramite l'editor aperto [bpmn.io](https://bpmn.io). Nel repository di progetto sono inclusi sia il sorgente ([`diagram.bpmn`](./diagram.bpmn)), sia la sua resa grafica vettoriale ad alta definizione ([`diagram.svg`](./diagram.svg)), integrata di seguito.
+La modellazione formale è stata realizzata tramite l'editor aperto [bpmn.io](https://bpmn.io). Nel repository di progetto sono inclusi sia il sorgente ([`diagram.bpmn`](./diagram.bpmn)), sia la sua resa grafica vettoriale ad alta definizione ([`img/diagram.svg`](./img/diagram.svg)), integrata di seguito.
 
-![Flusso di Gestione Documentale del Tesauro in Notazione BPMN 2.0](./diagram.svg)
+![Flusso di Gestione Documentale del Tesauro in Notazione BPMN 2.0](./img/diagram.svg)
 
 Il diagramma BPMN 2.0 formalizza le seguenti fasi sequenziali e di retroazione:
 1. **Evento di Inizio e Proposta**: L'utente della comunità identifica un'esigenza terminologica e compila il modulo strutturato *GitHub Issue Form*;
