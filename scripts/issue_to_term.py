@@ -1,17 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-================================================================================
-PROGETTO D'ESAME DI EDITORIA DIGITALE - UNIVERSITÀ DEGLI STUDI DI MILANO
-Script: issue_to_term.py
-Descrizione: Convertitore automatico da GitHub Issue Form a Termine Markdown/YAML.
-================================================================================
-SCOPO NELL'ARCHITETTURA EDITORIALE (CHATOPS / LABEL-DRIVEN CI/CD):
-Questo script automatizza la transizione dalla proposta della comunità (Issue)
-alla scheda formale del termine (data/terms/<id>.md).
+Convertitore automatico da GitHub Issue Form a Termine Markdown/YAML.
 Viene eseguito dalla GitHub Action 'publish_on_approval.yml' quando il Chief Editor
-assegna l'etichetta 'approved' (o 'Approved'/'approvato') a una issue.
-================================================================================
+assegna l'etichetta 'approved' (anche 'Approved'/'approvato' va bene) a una issue.
 """
 
 import argparse
@@ -24,8 +16,8 @@ import yaml
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TERMS_DIR = os.path.join(ROOT_DIR, "data", "terms")
 DECISIONS_FILE = os.path.join(ROOT_DIR, "DECISIONS.md")
-
-DEMO_ISSUE_BODY = """### Termine in Inglese (Preferred Label EN)*
+#testo per la demo
+DEMO_ISSUE_BODY = """### Termine in Inglese (Preferred Label EN)* 
 
 Algorithmic Bias
 
@@ -70,7 +62,7 @@ def clean_value(val):
     return v
 
 def slugify(text):
-    """Converte un testo in uno slug valido per ID e nome file (es. 'Algorithmic Bias' -> 'algorithmic-bias')."""
+    """Converte un testo in uno slug valido per ID e nome file, imporante per la funzione di modifica termine (chiede id)"""
     text = text.lower().strip()
     text = re.sub(r"[^a-z0-9\s-]", "", text)
     text = re.sub(r"[\s_]+", "-", text)
@@ -80,7 +72,7 @@ def parse_issue_sections(body):
     """
     Estrae le sezioni dell'Issue Form generate da GitHub Markdown.
     Gestisce intestazioni ###, ##, oppure **Grassetto**.
-    Rimuove asterischi finali tipici dei campi obbligatori di GitHub (es. '### Campo*').
+    Rimuove quello che rimane dei campi obbligatori di GitHub (es. asterischi finali).
     """
     sections = {}
     current_sec = None
@@ -103,7 +95,7 @@ def parse_issue_sections(body):
     return sections
 
 def find_section(sections, keywords):
-    """Cerca una sezione confrontando parole chiave nel titolo."""
+    """Cerca una sezione confrontando parole chiave nel titolo"""
     for title, content in sections.items():
         title_lower = title.lower()
         if any(k.lower() in title_lower for k in keywords):
@@ -151,7 +143,7 @@ def parse_sources(sources_text):
 
 def convert_issue_to_term(issue_body, issue_number=None, issue_title=""):
     """
-    Esegue il parsing dei campi dell'issue e genera il file .md in data/terms/.
+    parsing dei campi dell'issue e genera il file .md in data/terms/.
     """
     sections = parse_issue_sections(issue_body)
     
@@ -315,7 +307,7 @@ def main():
     parser.add_argument("--demo", action="store_true", help="Esegue la conversione con una issue di prova")
     args = parser.parse_args()
     
-    # 1. Recupero del corpo dell'issue
+    # recupero del corpo dell'issue
     title = args.issue_title or os.environ.get("ISSUE_TITLE", "")
     if args.demo:
         print("[DEMO] Utilizzo della proposta di esempio: 'Algorithmic Bias'...")

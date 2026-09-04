@@ -1,25 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-================================================================================
-PROGETTO D'ESAME DI EDITORIA DIGITALE - UNIVERSITÀ DEGLI STUDI DI MILANO
-Script: build_thesaurus.py
-Descrizione: Generatore automatico degli artefatti finali di pubblicazione.
-================================================================================
-SCOPO NELL'ARCHITETTURA EDITORIALE:
-Questo script implementa il paradigma del "Single Source of Truth" (SSOT):
-a partire da un unico insieme di file sorgente leggibili (Markdown + YAML),
 compila simultaneamente due canali di distribuzione multicanale:
-  1. dist/thesaurus.json : Dataset strutturato per l'interoperabilità software
-                           e il riuso secondo i principi degli Open Data;
-  2. dist/index.html     : Portale web statico, interattivo, bilingue, accessibile
-                           e responsive, pronto per il deploy su GitHub Pages.
-
-VANTAGGI PER L'ESAME:
-  - Nessuna dipendenza complessa (richiede solo Python standard e PyYAML);
-  - Generazione di un sito statico puro (HTML/CSS/JS) a zero costi di hosting;
-  - Prestazioni elevatissime e tempo di caricamento istantaneo nel browser.
-================================================================================
+  1. dist/thesaurus.json : Dataset strutturato per l'interoperabilità software e il riuso secondo i principi degli Open Data;
+  2. dist/index.html     : Portale web statico, interattivo, bilingue, accessibile e responsive, pronto per il deploy su GitHub Pages.
 """
 
 import json
@@ -29,17 +13,17 @@ import sys
 import yaml
 
 # -----------------------------------------------------------------------------
-# DEFINIZIONE DEI PERCORSI DEL PROGETTO
+# PERCORSI DEL PROGETTO
 # -----------------------------------------------------------------------------
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TERMS_DIR = os.path.join(ROOT_DIR, "data", "terms")     # Cartella sorgenti
-DIST_DIR = os.path.join(ROOT_DIR, "dist")              # Cartella di distribuzione (artefatti)
+DIST_DIR = os.path.join(ROOT_DIR, "dist")              # Cartella di distribuzione
 
 
 def extract_frontmatter(content):
     """
-    Separa i metadati YAML dal testo Markdown del termine tramite RegEx.
-    Ritorna una tupla: (stringa_yaml, testo_markdown).
+    Separa i metadati YAML dal testo Markdown del termine tramite RegEx  -> RegEx è l'unico modo affidabile per isolare il frontmatter YAML in presenza di delimitatori '---' multipli nel corpo del testo.
+    Ritorna: (stringa_yaml, testo_markdown).
     """
     match = re.match(r"^---\s*\n(.*?)\n---\s*\n(.*)$", content, re.DOTALL)
     if not match:
@@ -49,9 +33,8 @@ def extract_frontmatter(content):
 
 def load_terms():
     """
-    Carica tutti i termini Markdown dalla cartella data/terms/:
       1. Legge ciascun file .md;
-      2. Isola e deserializza il frontmatter YAML con yaml.safe_load;
+      2. Isola il frontmatter YAML con yaml.safe_load;
       3. Allega il corpo descrittivo Markdown nel campo 'content_md';
       4. Ordina i termini alfabeticamente in base all'etichetta inglese.
     
@@ -77,15 +60,7 @@ def load_terms():
 
 def build_web_portal(terms, output_path):
     """
-    Genera un'applicazione web statica autonoma (Single-Page Application in HTML5/CSS3/JS)
-    incorporando l'intero dataset dei termini all'interno della pagina.
-    
-    Caratteristiche progettuali:
-      - Palette cromatica formale conforme a linee guida di accessibilità WCAG 2.1 AA;
-      - Ricerca istantanea full-text bilingue lato client (zero chiamate a server esterni);
-      - Filtri combinati per prospettiva disciplinare e fonte/standard normativo;
-      - Navigazione ipertestuale delle relazioni (Broader, Narrower, Related) con smooth scrolling;
-      - Toggle immediato per la visualizzazione con priorità linguistica IT o EN.
+    Genera il portale statico
     """
     terms_json = json.dumps(terms, ensure_ascii=False)
     
@@ -480,40 +455,39 @@ def build_web_portal(terms, output_path):
 
 def main():
     """
-    Orchestra la pipeline di compilazione degli artefatti finali:
-      PASSO 1: Crea la cartella di output 'dist/' se non esiste già;
-      PASSO 2: Carica e unifica tutti i termini Markdown da 'data/terms/';
-      PASSO 3: Esporta l'indice strutturato 'dist/thesaurus.json';
-      PASSO 4: Compila l'applicazione web interattiva 'dist/index.html' (pronta per GitHub Pages);
-      PASSO 5: Crea una copia sincronizzata in 'web_mockup/index.html' per consultazione locale.
+    Crea la cartella di output 'dist/' se non esiste già;
+    Carica e unifica tutti i termini Markdown da 'data/terms/';
+    Esporta l'indice strutturato 'dist/thesaurus.json';
+    Compila l'applicazione web interattiva 'dist/index.html' (pronta per GitHub Pages);
+    Crea una copia sincronizzata in 'web_mockup/index.html' per consultazione locale.
     """
     print("=" * 70)
     print("COMPILAZIONE ARTEFATTI DEL TESAURO SULLA GOVERNANCE DELL'IA")
     print("=" * 70)
     
-    # PASSO 1: Assicura la presenza della cartella di distribuzione
+    # Crea 'dist/' in caso non ci sia
     os.makedirs(DIST_DIR, exist_ok=True)
     
-    # PASSO 2: Ingestione e parsing dei dati sorgente
+    # Data handling: caricamento e ingestione
     terms = load_terms()
     print(f"Caricati {len(terms)} termini sorgente.")
     
-    # PASSO 3: Serializzazione in formato JSON (Interoperabilità / Dati Aperti)
+    # Porta tutto in JSON
     json_path = os.path.join(DIST_DIR, "thesaurus.json")
     with open(json_path, "w", encoding="utf-8") as f:
-        # ensure_ascii=False preserva correttamente caratteri accentati ed emoticon UTF-8
+        # ensure_ascii=False preserva caratteri accentati ed emoticon UTF-8
         json.dump(terms, f, ensure_ascii=False, indent=2)
     print(f"[BUILD] Esportato Dataset JSON: {json_path}")
     
-    # PASSO 4: Compilazione del portale statico per GitHub Pages
+    # Compila GH Pages
     html_path = os.path.join(DIST_DIR, "index.html")
     build_web_portal(terms, html_path)
     
-    # Crea .nojekyll per disabilitare il processore Jekyll di GitHub Pages
+    # SAFEGUARD JEKYLL
     nojekyll_path = os.path.join(DIST_DIR, ".nojekyll")
     open(nojekyll_path, "w", encoding="utf-8").close()
     
-    # PASSO 5: Copia locale di backup nella cartella web_mockup/
+    # backup locale
     web_mockup_dir = os.path.join(ROOT_DIR, "web_mockup")
     os.makedirs(web_mockup_dir, exist_ok=True)
     mockup_html_path = os.path.join(web_mockup_dir, "index.html")
