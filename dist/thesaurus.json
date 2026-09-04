@@ -1,0 +1,387 @@
+[
+  {
+    "id": "ai-risk-management",
+    "uri": "https://w3id.org/aigov-thesaurus/concept/ai-risk-management",
+    "prefLabel": {
+      "en": "AI Risk Management",
+      "it": "Gestione del rischio dell'IA"
+    },
+    "altLabel": {
+      "en": [
+        "AI Risk Assessment",
+        "Risk Management System"
+      ],
+      "it": [
+        "Sistema di gestione dei rischi",
+        "Valutazione dei rischi dell'IA"
+      ]
+    },
+    "perspective": [
+      "tecnico-operativa",
+      "normativa-giuridica"
+    ],
+    "definition": {
+      "en": "A continuous, iterative process implemented throughout the entire lifecycle of an AI system to identify, estimate, evaluate, mitigate, and monitor risks, ensuring safety, security, trustworthiness, and adherence to legal and ethical standards.",
+      "it": "Un processo continuo e iterativo implementato durante l'intero ciclo di vita di un sistema di IA per identificare, stimare, valutare, mitigare e monitorare i rischi, garantendo sicurezza, affidabilità e rispetto degli standard legali ed etici."
+    },
+    "scopeNote": {
+      "en": "Harmonized framework combining ISO/IEC 23894:2023 guidelines with the NIST AI RMF core functions (Govern, Map, Measure, Manage) and Article 9 compliance under the EU AI Act.",
+      "it": "Quadro metodologico armonizzato che combina le linee guida dello standard ISO/IEC 23894:2023 con le funzioni cardine del NIST AI RMF (Govern, Map, Measure, Manage) e con i requisiti dell'Art. 9 dell'AI Act europeo."
+    },
+    "broader": [],
+    "narrower": [],
+    "related": [
+      "high-risk-ai",
+      "ai-system",
+      "human-oversight"
+    ],
+    "sources": [
+      {
+        "type": "standard",
+        "name": "ISO/IEC 23894:2023",
+        "reference": "Clausola 5 (AI Risk Management Process) e Clausola 6",
+        "url": "https://www.iso.org/standard/77304.html"
+      },
+      {
+        "type": "standard",
+        "name": "NIST AI Risk Management Framework (NIST AI RMF 1.0)",
+        "reference": "Part 1 (Foundational Information) e Part 2 (Core Functions)",
+        "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+      },
+      {
+        "type": "normativa",
+        "name": "EU AI Act (Reg. UE 2024/1689)",
+        "reference": "Articolo 9 (Sistema di gestione dei rischi)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+      }
+    ],
+    "status": "approved",
+    "version": "1.0.0",
+    "lastUpdated": "2026-09-01",
+    "content_md": "# AI Risk Management / Gestione del rischio dell'IA\n\n### Inquadramento Concettuale\nLa **Gestione del rischio dell'IA** rappresenta il punto di convergenza fondamentale tra la conformità normativa e le pratiche ingegneristiche di sviluppo software. Supera l'approccio statico della certificazione *una tantum* introducendo un controllo iterativo lungo tutto il ciclo di vita del sistema (*life-cycle approach*).\n\n### Le Funzioni Cardine\n1. **Govern (Governance)**: Definizione di politiche, ruoli, responsabilità e cultura della trasparenza.\n2. **Map (Mappatura)**: Comprensione del contesto, degli stakeholder, delle interazioni socio-tecniche e dei potenziali impatti.\n3. **Measure (Misurazione)**: Quantificazione e analisi qualitativa dei rischi, testing, metriche di robustezza e bias.\n4. **Manage (Gestione)**: Applicazione di controlli tecnici e organizzativi di mitigazione del rischio residuo."
+  },
+  {
+    "id": "agentic-ai",
+    "uri": "https://w3id.org/aigov-thesaurus/concept/agentic-ai",
+    "prefLabel": {
+      "en": "Agentic AI",
+      "it": "IA agentica"
+    },
+    "altLabel": {
+      "en": [
+        "Autonomous AI Agents",
+        "Agentic Systems",
+        "Goal-directed AI"
+      ],
+      "it": [
+        "Sistemi di IA agentica",
+        "Agenti autonomi intelligenti",
+        "IA orientata agli obiettivi"
+      ]
+    },
+    "perspective": [
+      "tecnico-operativa",
+      "concettuale-filosofica"
+    ],
+    "definition": {
+      "en": "An advanced class of artificial intelligence systems endowed with autonomous decision-making capabilities that allow them to pursue complex, multi-step goals with minimal human intervention, exhibiting planning, tool use, reflexivity, and environmental interaction.",
+      "it": "Una classe avanzata di sistemi di intelligenza artificiale dotata di capacità decisionali autonome che le consentono di perseguire obiettivi complessi e multi-fase con intervento umano minimo, manifestando pianificazione, uso di strumenti, riflessività e interazione attiva con l'ambiente."
+    },
+    "scopeNote": {
+      "en": "Emerging concept bridging autonomous agent theory (ISO/IEC 22989) with philosophical notions of agency, intentionality, and moral accountability. Poses novel challenges for human oversight and governance.",
+      "it": "Concetto emergente che unisce la teoria ingegneristica degli agenti autonomi (ISO/IEC 22989) con le nozioni filosofiche di agenzia, intenzionalità e responsabilità morale. Pone sfide inedite per la supervisione umana e il monitoraggio dei rischi."
+    },
+    "broader": [
+      "ai-system"
+    ],
+    "narrower": [],
+    "related": [
+      "gpai-model",
+      "human-oversight",
+      "ai-risk-management"
+    ],
+    "sources": [
+      {
+        "type": "standard",
+        "name": "ISO/IEC 22989:2022",
+        "reference": "Clausola 3.1.1 (Agent) e 5.4 (Autonomy levels)",
+        "url": "https://www.iso.org/standard/74296.html"
+      },
+      {
+        "type": "standard",
+        "name": "NIST AI Governance Guidelines for Autonomous Systems (2025)",
+        "reference": "Section 4 (Agentic Behavior and Safeguards)",
+        "url": "https://www.nist.gov"
+      },
+      {
+        "type": "scientifico",
+        "name": "Floridi, L. (2024)",
+        "reference": "On the Ethics and Governance of Autonomous AI Agents. Minds and Machines, 34(2)",
+        "url": "https://doi.org/10.1007/s11023-024-09670-w"
+      }
+    ],
+    "status": "approved",
+    "version": "1.0.0",
+    "lastUpdated": "2026-09-01",
+    "content_md": "# Agentic AI / IA agentica\n\n### Inquadramento Concettuale\nIl concetto di **IA agentica** (*Agentic AI*) descrive il passaggio dai modelli passivi di elaborazione del linguaggio o riconoscimento di pattern a entità software capaci di formulare piani autonomi, orchestrare strumenti esterni (API, calcolatori, database) e prendere decisioni esecutive in retroazione con l'ambiente.\n\n### Sfide Etiche, Giuridiche e Tecniche\n1. **Rottura del paradigma deterministico**: La capacità di adattamento continuo e di delega decisionale complica l'attribuzione di responsabilità giuridica secondo i canoni della colpa e del danno contrattuale/extracontrattuale.\n2. **Supervisione Umana (*Human Oversight*)**: Con l'IA agentica il classico paradigma *Human-in-the-loop* (HITL) rischia di diventare impraticabile a causa della rapidità di esecuzione degli agenti, rendendo necessario transitare verso modelli *Human-on-the-loop* (HOTL) o *Human-in-command* con arresti d'emergenza (*kill switch*) verificabili.\n3. **Allineamento e Controllo dei Rischi**: Gli standard NIST e ISO/IEC sottolineano la necessità di vincolare le funzioni di pianificazione (*planning modules*) a vincoli di sicurezza invalicabili (*guardrails*)."
+  },
+  {
+    "id": "ai-system",
+    "uri": "https://w3id.org/aigov-thesaurus/concept/ai-system",
+    "prefLabel": {
+      "en": "Artificial Intelligence System",
+      "it": "Sistema di Intelligenza Artificiale"
+    },
+    "altLabel": {
+      "en": [
+        "AI System",
+        "AI Technology"
+      ],
+      "it": [
+        "Sistema di IA",
+        "Tecnologia di IA"
+      ]
+    },
+    "perspective": [
+      "normativa-giuridica",
+      "tecnico-operativa"
+    ],
+    "definition": {
+      "en": "A machine-based system designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments.",
+      "it": "Un sistema basato su macchina progettato per funzionare con livelli variabili di autonomia e che può mostrare adattabilità dopo l'implementazione, e che, per obiettivi espliciti o impliciti, deduce dall'input ricevuto come generare output quali previsioni, contenuti, raccomandazioni o decisioni che possono influenzare ambienti fisici o virtuali."
+    },
+    "scopeNote": {
+      "en": "Harmonized definition aligned between the European AI Act (Art. 3(1)), the revised OECD definition (2023), and standard ISO/IEC 22989:2022.",
+      "it": "Definizione armonizzata ai sensi dell'Art. 3, par. 1 del Regolamento UE 2024/1689 (AI Act), allineata con l'aggiornamento OCSE del 2023 e con lo standard ISO/IEC 22989:2022."
+    },
+    "broader": [],
+    "narrower": [
+      "high-risk-ai",
+      "gpai-model",
+      "agentic-ai"
+    ],
+    "related": [
+      "ai-risk-management",
+      "human-oversight"
+    ],
+    "sources": [
+      {
+        "type": "normativa",
+        "name": "EU AI Act (Reg. UE 2024/1689)",
+        "reference": "Articolo 3, paragrafo 1",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+      },
+      {
+        "type": "standard",
+        "name": "ISO/IEC 22989:2022",
+        "reference": "Clausola 3.1.4 (Artificial intelligence system)",
+        "url": "https://www.iso.org/standard/74296.html"
+      },
+      {
+        "type": "normativa",
+        "name": "DDL AI Italia 2025",
+        "reference": "Articolo 2 (Definizioni)",
+        "url": "https://www.senato.it"
+      }
+    ],
+    "status": "approved",
+    "version": "1.0.0",
+    "lastUpdated": "2026-09-01",
+    "content_md": "# Artificial Intelligence System / Sistema di Intelligenza Artificiale\n\n### Inquadramento Concettuale\nIl termine **Sistema di IA** rappresenta il perno ontologico e normativo di tutta la disciplina della governance digitale. La definizione adottata rappresenta il punto di convergenza raggiunto a livello internazionale tra la raccomandazione OCSE (novembre 2023), l'AI Act europeo (Reg. UE 2024/1689) e lo standard tecnico ISO/IEC 22989:2022.\n\n### Armonizzazione Interdisciplinare\n1. **Prospettiva Giuridico-Normativa**: Nell'AI Act, la definizione delimita l'ambito di applicazione oggettivo della norma, distinguendo i sistemi di IA dal software deterministico tradizionale mediante i criteri di *autonomia* e capacità di *inferenza*.\n2. **Prospettiva Tecnico-Operativa**: Negli standard ISO e NIST, l'accento è posto sulla relazione tra input, modelli probabilistici/statistici e output generati (decisioni, predizioni, raccomandazioni o contenuti).\n3. **Prospettiva Concettuale-Filosofica**: Pone al centro la tensione tra l'adattabilità post-deployment e l'intenzionalità originaria stabilita dai programmatori umani."
+  },
+  {
+    "id": "gpai-model",
+    "uri": "https://w3id.org/aigov-thesaurus/concept/gpai-model",
+    "prefLabel": {
+      "en": "General-Purpose AI Model",
+      "it": "Modello di IA per finalità generali"
+    },
+    "altLabel": {
+      "en": [
+        "GPAI Model",
+        "Foundation Model"
+      ],
+      "it": [
+        "Modello GPAI",
+        "Modello fondazionale",
+        "Modello general-purpose"
+      ]
+    },
+    "perspective": [
+      "normativa-giuridica",
+      "tecnico-operativa"
+    ],
+    "definition": {
+      "en": "An AI model, including where such an AI model is trained with a large amount of data using self-supervision at scale, that displays significant generality and is capable of competently performing a wide range of distinct tasks regardless of the way the model is placed on the market and that can be integrated into a variety of downstream systems or applications.",
+      "it": "Un modello di IA, anche qualora sia addestrato con una grande quantità di dati mediante autosupervisione su larga scala, che manifesta una significativa generalità ed è capace di eseguire competentemente un'ampia gamma di compiti distinti, indipendentemente dalle modalità di immissione sul mercato e che può essere integrato in una molteplicità di sistemi o applicazioni a valle."
+    },
+    "scopeNote": {
+      "en": "Covers large foundation models and frontier LLMs. Models trained with cumulative computational power exceeding 10^25 FLOPs are classified as carrying systemic risk.",
+      "it": "Include modelli linguistici di grandi dimensioni (LLM) e modelli fondazionali multimodali. Quelli addestrati con una potenza computazionale cumulativa superiore a 10^25 FLOP sono classificati a rischio sistemico."
+    },
+    "broader": [
+      "ai-system"
+    ],
+    "narrower": [],
+    "related": [
+      "agentic-ai",
+      "ai-risk-management"
+    ],
+    "sources": [
+      {
+        "type": "normativa",
+        "name": "EU AI Act (Reg. UE 2024/1689)",
+        "reference": "Articolo 3, punto 63 e Articoli 51-56",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+      },
+      {
+        "type": "policy",
+        "name": "GPAI Codes of Practice (EU AI Office)",
+        "reference": "Code of Practice on General-Purpose AI (2025)",
+        "url": "https://digital-strategy.ec.europa.eu"
+      },
+      {
+        "type": "standard",
+        "name": "NIST AI RMF Generative AI Profile (NIST SP 1270)",
+        "reference": "Section 3 (Core Profile for Foundation Models)",
+        "url": "https://www.nist.gov"
+      }
+    ],
+    "status": "approved",
+    "version": "1.0.0",
+    "lastUpdated": "2026-09-01",
+    "content_md": "# General-Purpose AI Model / Modello di IA per finalità generali\n\n### Inquadramento Concettuale\nI modelli di IA per finalità generali (spesso definiti nella letteratura scientifica come *Foundation Models*) rappresentano una categoria orizzontale introdotta nel dibattito normativo per distinguere i modelli di base upstream dalle applicazioni verticali downstream.\n\n### Regolamentazione e Standard\nI Codes of Practice promossi dall'AI Office europeo nel 2025 e i profili di rischio NIST forniscono linee guida tecniche per:\n1. Valutazione dei rischi sistemici (cybersecurity, disinformazione su larga scala, armi CBRN).\n2. Valutazione di impatto energetico e trasparenza sul copyright dei dati di training.\n3. Obblighi di redazione di sintesi dettagliate e documentazione tecnica standardizzata."
+  },
+  {
+    "id": "high-risk-ai",
+    "uri": "https://w3id.org/aigov-thesaurus/concept/high-risk-ai",
+    "prefLabel": {
+      "en": "High-Risk AI System",
+      "it": "Sistema di IA ad alto rischio"
+    },
+    "altLabel": {
+      "en": [
+        "High-Risk AI"
+      ],
+      "it": [
+        "IA ad alto rischio",
+        "Sistemi a rischio elevato"
+      ]
+    },
+    "perspective": [
+      "normativa-giuridica",
+      "tecnico-operativa"
+    ],
+    "definition": {
+      "en": "An artificial intelligence system that poses significant risks to the health, safety, or fundamental rights of natural persons, subjecting it to stringent ex-ante compliance, conformity assessment, and risk management requirements under applicable regulations.",
+      "it": "Un sistema di intelligenza artificiale che presenta rischi significativi per la salute, la sicurezza o i diritti fondamentali delle persone fisiche, e che è pertanto soggetto a stringenti requisiti di conformità ex-ante, valutazione di conformità e gestione del rischio previsti dalla normativa applicabile."
+    },
+    "scopeNote": {
+      "en": "Under the EU AI Act, high-risk systems are categorized through a dual mechanism: systems used as safety components of products subject to third-party conformity assessment (Annex I) and stand-alone systems in critical areas listed in Annex III.",
+      "it": "Nel contesto del Regolamento UE 2024/1689, i sistemi ad alto rischio sono individuati tramite una doppia classificazione: componenti di sicurezza di prodotti soggetti a certificazione di terzi (Allegato I) e sistemi autonomi impiegati in settori critici elencati nell'Allegato III."
+    },
+    "broader": [
+      "ai-system"
+    ],
+    "narrower": [],
+    "related": [
+      "ai-risk-management",
+      "human-oversight"
+    ],
+    "sources": [
+      {
+        "type": "normativa",
+        "name": "EU AI Act (Reg. UE 2024/1689)",
+        "reference": "Articolo 6, Allegati I e III",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+      },
+      {
+        "type": "normativa",
+        "name": "Convenzione Quadro Consiglio d'Europa sull'IA (CETS 225)",
+        "reference": "Articolo 16 (Valutazione e mitigazione dei rischi)",
+        "url": "https://www.coe.int"
+      },
+      {
+        "type": "standard",
+        "name": "ISO/IEC 23894:2023",
+        "reference": "Clausola 6.2 (Risk Identification for High Impact Systems)",
+        "url": "https://www.iso.org/standard/77304.html"
+      }
+    ],
+    "status": "approved",
+    "version": "1.0.0",
+    "lastUpdated": "2026-09-01",
+    "content_md": "# High-Risk AI System / Sistema di IA ad alto rischio\n\n### Inquadramento Concettuale\nIl concetto di **Sistema ad alto rischio** è l'architrave dell'approccio basato sul rischio (*risk-based approach*) che caratterizza la governance europea ed internazionale dell'IA.\n\n### Implicazioni Operative\nI fornitori e gli utenti di sistemi ad alto rischio devono soddisfare requisiti vincolanti:\n- Adozione di un sistema continuativo di gestione dei rischi (ISO/IEC 23894 e Art. 9 AI Act).\n- Governance dei dati e mitigazione dei bias (Art. 10).\n- Trasparenza e fornitura di istruzioni per l'uso (Art. 13).\n- Progettazione orientata alla supervisione umana effettiva (*Human Oversight*, Art. 14)."
+  },
+  {
+    "id": "human-oversight",
+    "uri": "https://w3id.org/aigov-thesaurus/concept/human-oversight",
+    "prefLabel": {
+      "en": "Human Oversight",
+      "it": "Supervisione umana"
+    },
+    "altLabel": {
+      "en": [
+        "Human-in-the-loop",
+        "Human Control",
+        "Human-on-the-loop"
+      ],
+      "it": [
+        "Controllo umano",
+        "Supervisione umana attiva",
+        "Uomo nel circuito"
+      ]
+    },
+    "perspective": [
+      "normativa-giuridica",
+      "tecnico-operativa",
+      "concettuale-filosofica"
+    ],
+    "definition": {
+      "en": "Measures and design choices enabling natural persons to effectively oversee, monitor, intervene in, or override the operation of an AI system, preventing or minimizing risks to health, safety, fundamental rights, and human autonomy.",
+      "it": "Insieme delle misure e scelte progettuali che consentono a persone fisiche di sorvegliare, monitorare, intervenire o sovrascrivere efficacemente il funzionamento di un sistema di IA, prevenendo o minimizzando i rischi per la salute, la sicurezza, i diritti fondamentali e l'autonomia umana."
+    },
+    "scopeNote": {
+      "en": "Article 14 of the EU AI Act mandates human oversight for high-risk AI systems. Articulated in three operational modes: human-in-the-loop (HITL), human-on-the-loop (HOTL), and human-in-command (HIC).",
+      "it": "L'Articolo 14 dell'AI Act impone la supervisione umana per i sistemi ad alto rischio. Essa si declina tecnicamente in tre modalità: uomo nel circuito (HITL), uomo sul circuito (HOTL) e uomo al comando (HIC)."
+    },
+    "broader": [],
+    "narrower": [],
+    "related": [
+      "ai-system",
+      "high-risk-ai",
+      "agentic-ai",
+      "ai-risk-management"
+    ],
+    "sources": [
+      {
+        "type": "normativa",
+        "name": "EU AI Act (Reg. UE 2024/1689)",
+        "reference": "Articolo 14 (Supervisione umana)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+      },
+      {
+        "type": "normativa",
+        "name": "Convenzione Quadro Consiglio d'Europa sull'IA (CETS 225)",
+        "reference": "Articolo 13 (Autonomia umana e supervisione)",
+        "url": "https://www.coe.int"
+      },
+      {
+        "type": "standard",
+        "name": "NIST AI RMF 1.0",
+        "reference": "Govern 1.2 e Govern 1.3",
+        "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+      },
+      {
+        "type": "standard",
+        "name": "ISO/IEC 22989:2022",
+        "reference": "Clausola 3.4.11 (Human-machine teaming and oversight)",
+        "url": "https://www.iso.org/standard/74296.html"
+      }
+    ],
+    "status": "approved",
+    "version": "1.0.0",
+    "lastUpdated": "2026-09-01",
+    "content_md": "# Human Oversight / Supervisione umana\n\n### Inquadramento Concettuale\nLa **Supervisione umana** rappresenta il principio cardine dell'approccio antropocentrico (*human-centric*) promosso dalle istituzioni europee ed internazionali. Si contrappone a qualsiasi forma di automazione de-responsabilizzante e garantisce la primazia dell'essere umano sulle decisioni algoritmiche.\n\n### Declinazione Interdisciplinare\n1. **Diritto**: Requisito cogente di liceità per i sistemi ad alto rischio (Art. 14 AI Act); presupposto per l'imputabilità della responsabilità giuridica.\n2. **Tecnologia**: Implementazione di interfacce persona-macchina (HCI), pulsanti di arresto d'emergenza (*stop button*), e meccanismi che prevengano il fenomeno dell'*automation bias* (la tendenza degli operatori a fidarsi ciecamente dell'output del sistema).\n3. **Filosofia ed Etica**: Salvaguardia dell'autonomia e dell'agenzia morale umana di fronte a sistemi predittivi e decisionali."
+  }
+]

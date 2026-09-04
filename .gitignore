@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS generated files
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+
+#Sources & Others
+Esercizio11092026.pdf
+sources/
+

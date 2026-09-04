@@ -1,0 +1,85 @@
+name: Pubblicazione Automatica del Tesauro sulla Governance dell'IA
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/terms/**'
+      - 'scripts/**'
+      - '.github/workflows/deploy.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/terms/**'
+      - 'scripts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  validate-and-test:
+    name: Validazione Formale e Semantica dei Termini
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del Repository
+        uses: actions/checkout@v4
+
+      - name: Configurazione di Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installazione Dipendenze
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Esecuzione Validatore Termini
+        run: |
+          python scripts/validate_terms.py
+
+  build-and-deploy:
+    name: Generazione Artefatti e Pubblicazione Web
+    needs: validate-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout del Repository
+        uses: actions/checkout@v4
+
+      - name: Configurazione di Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installazione Dipendenze
+        run: |
+          pip install pyyaml
+
+      - name: Compilazione Tesauro (SKOS, JSON, HTML)
+        run: |
+          python scripts/build_thesaurus.py
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artefatto Statico
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: Deploy su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

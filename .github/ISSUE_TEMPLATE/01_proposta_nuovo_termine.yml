@@ -1,0 +1,82 @@
+name: Proposta di Nuovo Termine
+description: Invia una proposta motivata per introdurre un nuovo concetto nel tesauro
+title: "[PROPOSTA TERMINE]: "
+labels: ["triage", "nuovo-termine"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per contribuire al **Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale**.
+        Per garantire l'omogeneità e il rigore scientifico, tutti i campi contrassegnati con asterisco (*) sono **obbligatori**.
+  - type: input
+    id: term_en
+    attributes:
+      label: Termine in Inglese (Preferred Label EN)*
+      placeholder: es. Explainable AI (XAI)
+    validations:
+      required: true
+  - type: input
+    id: term_it
+    attributes:
+      label: Termine in Italiano (Preferred Label IT)*
+      placeholder: es. Intelligenza Artificiale Spiegabile
+    validations:
+      required: true
+  - type: textarea
+    id: synonyms
+    attributes:
+      label: Varianti terminologiche o sinonimi (AltLabels)
+      placeholder: Indicare eventuali acronimi o varianti in inglese e italiano (uno per riga)
+  - type: dropdown
+    id: perspectives
+    attributes:
+      label: Prospettiva Primaria di Riferimento*
+      multiple: true
+      options:
+        - normativa-giuridica
+        - tecnico-operativa
+        - concettuale-filosofica
+    validations:
+      required: true
+  - type: textarea
+    id: definition_en
+    attributes:
+      label: Proposta di Definizione in Inglese*
+      placeholder: Fornire una definizione sintetica, rigorosa e non circolare.
+    validations:
+      required: true
+  - type: textarea
+    id: definition_it
+    attributes:
+      label: Proposta di Definizione in Italiano*
+      placeholder: Traduzione accurata e coerente della definizione proposta.
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Motivazione dell'Inclusione nel Tesauro*
+      description: Spiega perché questo termine è necessario per la governance dell'IA e quale vuoto colma nel vocabolario controllato.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Fonti Normative, Standard o Documenti Ufficiali a Supporto*
+      description: |
+        OBBLIGATORIO: Citare con precisione la fonte normativa (es. Reg. UE 2024/1689 Art. X), lo standard tecnico (es. ISO/IEC 22989 clausola Y, NIST AI RMF) o pubblicazioni scientifiche peer-reviewed.
+      placeholder: |
+        - EU AI Act (Reg. UE 2024/1689), Articolo ...
+        - ISO/IEC 22989:2022, Clausola ...
+        - NIST AI RMF 1.0, Sezione ...
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Dichiarazione di conformità
+      options:
+        - label: Confermo che le definizioni proposte si basano su fonti verificabili e non violano diritti di terzi.
+          required: true
+        - label: Accetto che la proposta venga sottoposta a peer-review pubblica da parte del comitato editoriale.
+          required: true

@@ -1,0 +1,59 @@
+name: Proposta di Modifica o Revisione di un Termine Esistente
+description: Suggerisci correzioni, aggiornamenti normativi o affinamenti semantici a una voce già presente
+title: "[MODIFICA TERMINE]: "
+labels: ["triage", "revisione-termine"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Utilizza questo modulo per proporre aggiornamenti motivati a un termine già catalogato nel tesauro.
+  - type: input
+    id: term_id
+    attributes:
+      label: Identificatore del Termine Esistente (ID o URI)*
+      placeholder: es. agentic-ai, high-risk-ai, ai-system
+    validations:
+      required: true
+  - type: checkboxes
+    id: change_type
+    attributes:
+      label: Tipo di Modifica Richiesta*
+      options:
+        - label: Correzione della traduzione italiana
+        - label: Aggiornamento della definizione a seguito di nuove disposizioni legislative
+        - label: Aggiunta/modifica di relazioni semantiche (Broader/Narrower/Related)
+        - label: Integrazione di nuovi standard di riferimento (es. ISO, NIST)
+        - label: Deprecazione o fusione del concetto
+    validations:
+      required: true
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Testo Attuale da Modificare*
+      placeholder: Incollare la porzione di definizione, etichetta o fonte attualmente registrata
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_text
+    attributes:
+      label: Nuovo Testo Proposto*
+      placeholder: Inserire la formulazione revisionata proposta
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivazione Dettagliata della Modifica*
+      description: Spiega le ragioni scientifiche, giuridiche o tecniche per cui la formulazione attuale risulta inadeguata o superata.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Fonti e Riferimenti Obbligatori a Supporto*
+      description: Indicare gli atti normativi, standard o sentenze che giustificano la modifica.
+      placeholder: |
+        - Fonte: ...
+        - Articolo / Paragrafo: ...
+    validations:
+      required: true
