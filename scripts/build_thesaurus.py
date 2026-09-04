@@ -70,63 +70,112 @@ def build_web_portal(terms, output_path):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tesauro sulla Governance dell'Intelligenza Artificiale | AI Governance Thesaurus</title>
+    <!-- Google Fonts: Rubik con pesi multipli (300, 400, 500, 600, 700, 800) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <style>
         :root {{
-            --primary: #1a365d;
-            --primary-light: #2b6cb0;
-            --accent: #319795;
-            --bg: #f7fafc;
-            --card-bg: #ffffff;
-            --text: #2d3748;
-            --text-muted: #718096;
-            --border: #e2e8f0;
-            --tag-legal: #e2e8f0;
-            --tag-tech: #bee3f8;
-            --tag-phil: #feebc8;
+            /* Palette Richiesta:
+               - Protagonisti: #40456a (Blu ardesia profondo) & #a5c8d1 (Azzurro luminoso)
+               - Accenti caldi: #d96629 (Arancio vivido) & #d8a37b (Pesca/terracotta morbido)
+               - Bianco e nero non puri per il massimo comfort visivo */
+            --c-primary: #40456a;        /* Protagonista 1: Blu ardesia profondo */
+            --c-primary-dark: #292d47;   /* Blu notte intenso per footer e contrasti */
+            --c-secondary: #a5c8d1;      /* Protagonista 2: Azzurro pastello luminoso */
+            --c-secondary-light: #edf5f7;/* Tinta chiarissima di azzurro per sfondi/evidenziazioni */
+            --c-secondary-glow: rgba(165, 200, 209, 0.35);
+            --c-accent-orange: #d96629;  /* Arancione bruciato vivido (CTA/azioni chiave) */
+            --c-accent-peach: #d8a37b;   /* Terracotta / pesca caldo (dettagli/bordi) */
+            
+            /* Bianco e Nero non puri */
+            --c-bg: #f4f6f9;             /* Sfondo pagina: bianco seta caldo */
+            --c-card-bg: #ffffff;        /* Sfondo tessere: bianco ottico pulito */
+            --c-text: #1b1d28;           /* Testo principale: nero carbone / antracite profondo */
+            --c-text-muted: #565b75;     /* Testo secondario: ardesia medio */
+            --c-border: #dbe3eb;         /* Bordo tenue */
+            --c-border-light: #edf2f7;
         }}
         * {{ box-sizing: border-box; margin: 0; padding: 0; }}
         body {{
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 400;
+            background-color: var(--c-bg);
+            color: var(--c-text);
             line-height: 1.6;
         }}
         header {{
-            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
-            color: white;
-            padding: 2.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-dark) 100%);
+            border-bottom: 4px solid var(--c-secondary);
+            color: #ffffff;
+            padding: 3rem 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(41, 45, 71, 0.15);
         }}
-        header h1 {{ font-size: 2.2rem; margin-bottom: 0.5rem; font-weight: 700; }}
-        header p {{ font-size: 1.1rem; opacity: 0.9; max-width: 800px; margin: 0 auto 1.5rem; }}
-        .badge-bar {{ display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }}
-        .badge {{ background: rgba(255,255,255,0.15); padding: 0.3rem 0.8rem; border-radius: 9999px; font-size: 0.85rem; }}
+        header h1 {{
+            font-size: 2.3rem;
+            margin-bottom: 0.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }}
+        header p {{
+            font-size: 1.15rem;
+            color: #e3e8f2;
+            font-weight: 300;
+            max-width: 820px;
+            margin: 0 auto 1.6rem;
+            line-height: 1.65;
+        }}
+        .badge-bar {{
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }}
+        .badge {{
+            background: rgba(165, 200, 209, 0.15);
+            border: 1px solid rgba(165, 200, 209, 0.45);
+            color: #f1f6f8;
+            font-weight: 500;
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            letter-spacing: 0.3px;
+        }}
         
         .main-container {{
             max-width: 1200px;
-            margin: -1.5rem auto 3rem;
+            margin: -1.8rem auto 3rem;
             padding: 0 1rem;
         }}
         .controls-card {{
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07);
+            background: var(--c-card-bg);
+            border-radius: 14px;
+            padding: 1.6rem;
+            box-shadow: 0 10px 25px -5px rgba(64, 69, 106, 0.08), 0 4px 6px -2px rgba(64, 69, 106, 0.03);
+            border: 1px solid var(--c-border);
             margin-bottom: 2rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.2rem;
         }}
         .search-bar {{
             width: 100%;
-            padding: 0.85rem 1.2rem;
+            padding: 0.9rem 1.3rem;
+            font-family: 'Rubik', sans-serif;
             font-size: 1.05rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            transition: border-color 0.2s;
+            font-weight: 400;
+            color: var(--c-text);
+            border: 2px solid var(--c-border);
+            border-radius: 10px;
+            background: #ffffff;
+            transition: all 0.2s ease;
         }}
-        .search-bar:focus {{ outline: none; border-color: var(--primary-light); }}
+        .search-bar:focus {{
+            outline: none;
+            border-color: var(--c-secondary);
+            box-shadow: 0 0 0 4px var(--c-secondary-glow);
+        }}
         
         .filter-row {{
             display: flex;
@@ -135,20 +184,53 @@ def build_web_portal(terms, output_path):
             align-items: center;
             justify-content: space-between;
         }}
-        .filter-group {{ display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }}
-        .filter-group label {{ font-weight: 600; color: var(--primary); }}
+        .filter-group {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.92rem;
+        }}
+        .filter-group label {{
+            font-weight: 600;
+            color: var(--c-primary);
+        }}
         select, .btn-toggle {{
-            padding: 0.45rem 0.8rem;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            background: white;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 500;
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
+            border: 1px solid var(--c-border);
+            background: #ffffff;
+            color: var(--c-text);
             font-size: 0.9rem;
             cursor: pointer;
+            transition: all 0.2s;
+        }}
+        select:focus {{
+            outline: none;
+            border-color: var(--c-secondary);
+        }}
+        .btn-toggle:hover:not(.active) {{
+            border-color: var(--c-secondary);
+            color: var(--c-primary);
         }}
         .btn-toggle.active {{
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            background: var(--c-primary);
+            color: #ffffff;
+            border-color: var(--c-primary);
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(64, 69, 106, 0.25);
+        }}
+        .btn-download {{
+            background: var(--c-secondary-light);
+            color: var(--c-primary);
+            border: 1px solid var(--c-secondary);
+            font-weight: 600;
+        }}
+        .btn-download:hover {{
+            background: var(--c-secondary);
+            color: var(--c-primary-dark);
+            border-color: var(--c-secondary);
         }}
         
         .grid {{
@@ -157,112 +239,202 @@ def build_web_portal(terms, output_path):
             gap: 1.5rem;
         }}
         .concept-card {{
-            background: var(--card-bg);
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            background: var(--c-card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--c-border);
+            border-top: 4px solid var(--c-primary);
+            padding: 1.6rem;
+            box-shadow: 0 4px 6px -1px rgba(64, 69, 106, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, border-top-color 0.2s;
         }}
         .concept-card:hover {{
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -4px rgba(64, 69, 106, 0.12);
+            border-top-color: var(--c-secondary);
         }}
         .card-header {{ margin-bottom: 1rem; }}
-        .card-title {{ font-size: 1.35rem; color: var(--primary); margin-bottom: 0.25rem; }}
-        .card-subtitle {{ font-size: 1rem; color: var(--text-muted); font-style: italic; }}
-        .perspectives-bar {{ display: flex; gap: 0.4rem; margin-top: 0.6rem; flex-wrap: wrap; }}
+        .card-title {{
+            font-size: 1.35rem;
+            color: var(--c-primary);
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }}
+        .card-subtitle {{
+            font-size: 0.96rem;
+            color: var(--c-text-muted);
+            font-style: italic;
+            font-weight: 400;
+        }}
+        .perspectives-bar {{
+            display: flex;
+            gap: 0.45rem;
+            margin-top: 0.7rem;
+            flex-wrap: wrap;
+        }}
         .tag {{
-            font-size: 0.75rem;
+            font-size: 0.74rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-weight: 700;
-            padding: 0.2rem 0.55rem;
-            border-radius: 4px;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
         }}
-        .tag-normativa-giuridica {{ background: #c6f6d5; color: #22543d; }}
-        .tag-tecnico-operativa {{ background: #bee3f8; color: #2a4365; }}
-        .tag-concettuale-filosofica {{ background: #feebc8; color: #744210; }}
+        .tag-normativa-giuridica {{
+            background: #e6f1f4;
+            color: #1a424e;
+            border: 1px solid var(--c-secondary);
+        }}
+        .tag-tecnico-operativa {{
+            background: #ebedf5;
+            color: var(--c-primary);
+            border: 1px solid #b7bcd4;
+        }}
+        .tag-concettuale-filosofica {{
+            background: #faeee7;
+            color: #924016;
+            border: 1px solid var(--c-accent-peach);
+        }}
         
         .card-body {{ margin-bottom: 1.2rem; }}
-        .def-text {{ font-size: 0.95rem; margin-bottom: 0.75rem; }}
+        .def-text {{
+            font-size: 0.96rem;
+            font-weight: 400;
+            margin-bottom: 0.85rem;
+            line-height: 1.62;
+            color: var(--c-text);
+        }}
         .scope-note {{
-            font-size: 0.85rem;
-            background: #edf2f7;
-            padding: 0.6rem;
+            font-size: 0.87rem;
+            font-weight: 400;
+            background: var(--c-secondary-light);
+            padding: 0.65rem 0.85rem;
             border-radius: 6px;
-            border-left: 3px solid var(--primary-light);
-            margin-bottom: 0.75rem;
+            border-left: 3px solid var(--c-secondary);
+            margin-bottom: 0.85rem;
+            color: var(--c-primary-dark);
         }}
         
         .relations-section {{
             font-size: 0.85rem;
-            border-top: 1px dashed var(--border);
-            padding-top: 0.75rem;
-            margin-top: 0.75rem;
+            border-top: 1px dashed var(--c-border);
+            padding-top: 0.8rem;
+            margin-top: 0.8rem;
         }}
-        .rel-item {{ margin-bottom: 0.35rem; }}
-        .rel-label {{ font-weight: 600; color: var(--text-muted); display: inline-block; width: 90px; }}
+        .rel-item {{ margin-bottom: 0.4rem; }}
+        .rel-label {{
+            font-weight: 600;
+            color: var(--c-text-muted);
+            display: inline-block;
+            width: 95px;
+            font-size: 0.82rem;
+        }}
         .rel-badge {{
             display: inline-block;
-            background: #e2e8f0;
-            padding: 0.15rem 0.45rem;
-            border-radius: 4px;
-            margin-right: 0.3rem;
+            background: #ebedf5;
+            padding: 0.18rem 0.55rem;
+            border-radius: 6px;
+            margin-right: 0.35rem;
+            margin-bottom: 0.25rem;
             cursor: pointer;
-            color: var(--primary);
+            color: var(--c-primary);
+            font-weight: 500;
+            font-size: 0.82rem;
             text-decoration: none;
+            border: 1px solid #d5dbe4;
+            transition: all 0.15s;
         }}
-        .rel-badge:hover {{ background: #cbd5e0; }}
+        .rel-badge:hover {{
+            background: var(--c-secondary);
+            color: var(--c-primary-dark);
+            border-color: var(--c-secondary);
+        }}
         
         .sources-section {{
             font-size: 0.82rem;
             background: #f8fafc;
-            padding: 0.6rem;
+            border: 1px solid #eef2f6;
+            padding: 0.65rem 0.85rem;
             border-radius: 6px;
-            margin-top: 0.75rem;
+            margin-top: 0.8rem;
         }}
-        .source-entry {{ margin-bottom: 0.25rem; }}
-        .source-entry a {{ color: var(--primary-light); text-decoration: none; }}
-        .source-entry a:hover {{ text-decoration: underline; }}
+        .source-entry {{
+            margin-bottom: 0.3rem;
+            color: var(--c-text);
+        }}
+        .source-entry strong {{
+            color: var(--c-primary);
+            font-weight: 600;
+        }}
+        .source-entry a {{
+            color: var(--c-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }}
+        .source-entry a:hover {{
+            color: var(--c-accent-orange);
+            text-decoration: underline;
+        }}
         
         .card-footer {{
-            border-top: 1px solid var(--border);
-            padding-top: 0.75rem;
+            border-top: 1px solid var(--c-border);
+            padding-top: 0.85rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--c-text-muted);
+            font-weight: 500;
         }}
         .btn-feedback {{
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
-            background: white;
-            color: var(--primary);
-            border: 1px solid var(--primary-light);
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
+            gap: 0.35rem;
+            background: #ffffff;
+            color: var(--c-accent-orange);
+            border: 1px solid var(--c-accent-orange);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             transition: all 0.2s;
         }}
-        .btn-feedback:hover {{ background: var(--primary); color: white; }}
+        .btn-feedback:hover {{
+            background: var(--c-accent-orange);
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(217, 102, 41, 0.35);
+        }}
         
         footer {{
             text-align: center;
-            padding: 2.5rem 1rem;
-            background: #edf2f7;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            padding: 2.8rem 1.5rem;
+            background: var(--c-primary-dark);
+            color: #cbd5e1;
+            font-size: 0.92rem;
             margin-top: 4rem;
+            border-top: 4px solid var(--c-accent-peach);
         }}
-        footer a {{ color: var(--primary-light); }}
+        footer p {{
+            margin-bottom: 0.4rem;
+        }}
+        footer strong {{
+            color: #ffffff;
+            font-weight: 600;
+        }}
+        footer a {{
+            color: var(--c-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.15s;
+        }}
+        footer a:hover {{
+            color: #ffffff;
+            text-decoration: underline;
+        }}
     </style>
 </head>
 <body>
@@ -308,7 +480,7 @@ def build_web_portal(terms, output_path):
                     </select>
                 </div>
                 <div class="filter-group">
-                    <a href="thesaurus.json" download class="btn-toggle" style="text-decoration:none; display:inline-block;">Scarica Dataset JSON</a>
+                    <a href="thesaurus.json" download class="btn-toggle btn-download" style="text-decoration:none; display:inline-block;">Scarica Dataset JSON</a>
                 </div>
             </div>
         </div>
@@ -437,8 +609,12 @@ def build_web_portal(terms, output_path):
                 const target = document.getElementById(`card-${{id}}`);
                 if (target) {{
                     target.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
-                    target.style.outline = '3px solid var(--primary-light)';
-                    setTimeout(() => {{ target.style.outline = ''; }}, 2000);
+                    target.style.outline = '3px solid var(--c-secondary)';
+                    target.style.boxShadow = '0 0 16px var(--c-secondary-glow)';
+                    setTimeout(() => {{ 
+                        target.style.outline = ''; 
+                        target.style.boxShadow = '';
+                    }}, 2000);
                 }}
             }}, 100);
         }}
