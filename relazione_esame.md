@@ -1,7 +1,7 @@
 ---
 title: Relazione del progetto d'esame di Editoria Digitale
-author: "[Nome Cognome, Matricola: 000000]"
-date: a.a. 2025/2026
+author: "[Elijah Lisa Bassetti, Matricola: 44464A]"
+date: a.a. 2026/2027
 institute: Università degli Studi di Milano
 course: Editoria Digitale
 tags: Governance dell'IA, Tesauro Bilingue, W3C SKOS, Flusso Editoriale, Git, CI/CD, Multicanalità
@@ -9,7 +9,7 @@ version: 1.0
 kind: Document
 ---
 
-![Logo UNIMI](https://www.unimi.it/sites/default/files/styles/banner_mobile/public/2019-11/minerva_0.jpg){width=100px height=100px}
+// logo Unimi broken, aggiungerlo
 
 # Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
 ### Armonizzazione delle dimensioni normativa, tecnico-operativa e concettuale attraverso Git, W3C SKOS e pubblicazione continua
