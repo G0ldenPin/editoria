@@ -509,6 +509,10 @@ def main():
     html_path = os.path.join(DIST_DIR, "index.html")
     build_web_portal(terms, html_path)
     
+    # Crea .nojekyll per disabilitare il processore Jekyll di GitHub Pages
+    nojekyll_path = os.path.join(DIST_DIR, ".nojekyll")
+    open(nojekyll_path, "w", encoding="utf-8").close()
+    
     # PASSO 5: Copia locale di backup nella cartella web_mockup/
     web_mockup_dir = os.path.join(ROOT_DIR, "web_mockup")
     os.makedirs(web_mockup_dir, exist_ok=True)
