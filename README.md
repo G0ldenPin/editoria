@@ -46,14 +46,13 @@ python scripts/build_thesaurus.py
 start dist/index.html
 ```
 
-Per accedere al sito basta semplicemente cliccare "GitHub Pages" sotto a deployments. Non sono stati svolti test sull'effettiva pubblicazione di termini attraverso PR o issue, il contenuto del mockup infatti è costituito solo da esempi rappresentativi.
-
-Sono stati testati i template delle ISSUE su GitHub e, come da foto allegate, funzionano perfettamente. I risultati dei test si possono consultare nelle due issue aperte.
+Per accedere al sito basta semplicemente cliccare "GitHub Pages" sotto a deployments. 
+Sono stati testati i template delle ISSUE su GitHub e, come da foto allegate, funzionano perfettamente. I risultati dei test si possono consultare nelle due issue aperte. La pubblicazione delle issue approvate avviene tramite `issue_to_term.py`.
 
 ![GitHub Pages](./pages_expl.png)
 ![Aggiunta Termine](./nuovo_termine.png)
 ![Modifica Termine](./modifica_termine.png)
-
+![Test 1](./test1.png)
 ---
 
 ### Consegne dell'Esercizio d'Esame
