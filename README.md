@@ -16,11 +16,13 @@ Progetto per la progettazione e documentazione di un **workflow editoriale digit
 - **`scripts/`**:
   - `validate_terms.py`: Script Python per verificare la correttezza formale, la simmetria bilingue e l'integrità referenziale delle relazioni semantiche.
   - `build_thesaurus.py`: Script Python per compilare i dati sorgente e generare i formati di consultazione (dataset JSON e portale statico HTML).
+  - `issue_to_term.py`: Convertitore automatico da GitHub Issue Form a scheda termine Markdown/YAML con aggiornamento EDR.
 - **`dist/`**: Artefatti compilati pronti per la pubblicazione su GitHub Pages:
   - `index.html`: Portale web statico, responsive e bilingue, con motore di ricerca e filtri sfaccettati.
   - `thesaurus.json`: Indice strutturato del tesauro e dataset per la ricerca client-side.
 - **`.github/`**:
-  - `workflows/deploy.yml`: Pipeline CI/CD per la validazione automatica e il deploy su GitHub Pages.
+  - `workflows/deploy.yml`: Pipeline CI/CD su commit/merge e trigger manuale `workflow_dispatch`.
+  - `workflows/publish_on_approval.yml`: Pipeline automatica ChatOps attivata dall'etichetta `approved` assegnata dal Chief Editor.
   - `ISSUE_TEMPLATE/`: Modelli strutturati per la raccolta di feedback dalla comunità (proposta di nuovi termini o revisione di termini esistenti) con campi obbligatori per motivazioni e citazioni di fonti/standard.
 
 ---
@@ -44,9 +46,14 @@ python scripts/build_thesaurus.py
 start dist/index.html
 ```
 
-Per accedere al sito basta semplicemente cliccare "GitHub Pages" sotto a deployments. Non sono stati svolti test sull'effettiva pubblicazione di termini attraverso PR o ISSUE, il contenuto del mockup infatti è costituito solo da esempi rappresentativi.
+Per accedere al sito basta semplicemente cliccare "GitHub Pages" sotto a deployments. Non sono stati svolti test sull'effettiva pubblicazione di termini attraverso PR o issue, il contenuto del mockup infatti è costituito solo da esempi rappresentativi.
+
+Sono stati testati i template delle ISSUE su GitHub e, come da foto allegate, funzionano perfettamente. I risultati dei test si possono consultare nelle due issue aperte.
 
 ![GitHub Pages](./pages_expl.png)
+![Aggiunta Termine](./nuovo_termine.png)
+![Modifica Termine](./modifica_termine.png)
+
 ---
 
 ### Consegne dell'Esercizio d'Esame

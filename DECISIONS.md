@@ -68,3 +68,17 @@ Ogni delibera segue il seguente schema formale:
   > La proposta non soddisfa i criteri di ammissibilità fissati dalle linee guida editoriali.
   > Dal punto di vista del diritto positivo europeo e comparato (AI Act e Convenzione quadro del Consiglio d'Europa CETS 225), la soggettività giuridica per i sistemi algoritmici non trova alcun riscontro normativo, confermando l'attribuzione della responsabilità esclusivamente a fornitori, deployer e persone fisiche. 
   > Sebbene il tema sia oggetto di dibattito dottrinale speculativo, non rappresenta allo stato attuale un termine controllato funzionale alla governance operativa e normativa dell'IA. Il termine potrà essere riconsiderato unicamente qualora dovessero emergere orientamenti giurisprudenziali o legislativi vincolanti.
+
+---
+
+### EDR-2026-004: Inclusione automatica del termine "Algorithmic Bias / Bias Algoritmico"
+- **Data**: 2026-09-04
+- **Termine**: `algorithmic-bias` (Algorithmic Bias / Bias Algoritmico)
+- **Tipologia**: Nuovo Termine (Flusso da GitHub Issue)
+- **Issue di Riferimento**: #25
+- **Revisori**:
+  - *Chief Editor* (Amministrazione e Triage)
+  - *Comitato Interdisciplinare* (Consenso accertato con label 'approved')
+- **Esito**: `APPROVATO`
+- **Giustificazione Pubblica**:
+  > Il concetto di bias algoritmico è centrale per la prevenzione delle discriminazioni nell'AI Act (Art. 10 sui requisiti di qualità dei dati) e costituisce la metrica fondamentale di verifica tecnica secondo lo standard ISO/IEC 24027.

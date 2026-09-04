@@ -126,6 +126,60 @@
     "content_md": "# Agentic AI / IA agentica\n\n### Inquadramento Concettuale\nIl concetto di **IA agentica** (*Agentic AI*) descrive il passaggio dai modelli passivi di elaborazione del linguaggio o riconoscimento di pattern a entità software capaci di formulare piani autonomi, orchestrare strumenti esterni (API, calcolatori, database) e prendere decisioni esecutive in retroazione con l'ambiente.\n\n### Sfide Etiche, Giuridiche e Tecniche\n1. **Rottura del paradigma deterministico**: La capacità di adattamento continuo e di delega decisionale complica l'attribuzione di responsabilità giuridica secondo i canoni della colpa e del danno contrattuale/extracontrattuale.\n2. **Supervisione Umana (*Human Oversight*)**: Con l'IA agentica il classico paradigma *Human-in-the-loop* (HITL) rischia di diventare impraticabile a causa della rapidità di esecuzione degli agenti, rendendo necessario transitare verso modelli *Human-on-the-loop* (HOTL) o *Human-in-command* con arresti d'emergenza (*kill switch*) verificabili.\n3. **Allineamento e Controllo dei Rischi**: Gli standard NIST e ISO/IEC sottolineano la necessità di vincolare le funzioni di pianificazione (*planning modules*) a vincoli di sicurezza invalicabili (*guardrails*)."
   },
   {
+    "id": "algorithmic-bias",
+    "uri": "https://w3id.org/aigov-thesaurus/concept/algorithmic-bias",
+    "prefLabel": {
+      "en": "Algorithmic Bias",
+      "it": "Bias Algoritmico"
+    },
+    "altLabel": {
+      "en": [
+        "Bias dell'IA",
+        "Distorsione algoritmica"
+      ],
+      "it": [
+        "AI Bias"
+      ]
+    },
+    "perspective": [
+      "tecnico-operativa",
+      "normativa-giuridica"
+    ],
+    "definition": {
+      "en": "Systematic and repeatable errors in a computer system that create unfair outcomes, such as privileging one arbitrary group of users over others.",
+      "it": "Errori sistematici e ripetibili in un sistema informatico che producono esiti iniqui, favorendo arbitrariamente determinati gruppi di utenti rispetto ad altri."
+    },
+    "scopeNote": {
+      "en": "Approved entry based on proposal #25. Motivated for AI governance alignment.",
+      "it": "Voce approvata sulla base della proposta #25. Allineamento per la governance dell'IA."
+    },
+    "broader": [
+      "ai-system"
+    ],
+    "narrower": [],
+    "related": [
+      "ai-risk-management"
+    ],
+    "sources": [
+      {
+        "type": "standard",
+        "name": "ISO/IEC 24027:2021",
+        "reference": "Clausola 3.1 (Bias in AI systems and AI aided decision making)",
+        "url": "https://www.iso.org"
+      },
+      {
+        "type": "normativa",
+        "name": "EU AI Act (Reg. UE 2024/1689)",
+        "reference": "Articolo 10, paragrafo 2, lettera f",
+        "url": "https://eur-lex.europa.eu"
+      }
+    ],
+    "status": "approved",
+    "version": "1.0.0",
+    "lastUpdated": "2026-09-04",
+    "content_md": "# Algorithmic Bias / Bias Algoritmico\n\n### Inquadramento Concettuale\nIl termine **Bias Algoritmico** (Algorithmic Bias) è stato introdotto nel vocabolario controllato su proposta approvata dal comitato interdisciplinare.\n\n### Motivazione della Decisione Editoriale\nIl concetto di bias algoritmico è centrale per la prevenzione delle discriminazioni nell'AI Act (Art. 10 sui requisiti di qualità dei dati) e costituisce la metrica fondamentale di verifica tecnica secondo lo standard ISO/IEC 24027."
+  },
+  {
     "id": "ai-system",
     "uri": "https://w3id.org/aigov-thesaurus/concept/ai-system",
     "prefLabel": {

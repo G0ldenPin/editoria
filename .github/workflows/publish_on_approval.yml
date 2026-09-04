@@ -1,0 +1,85 @@
+﻿name: Pubblicazione Automatica da Issue Approvata
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish-from-issue:
+    name: Conversione e Pubblicazione del Termine Approvato
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'nuovo-termine')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del Repository
+        uses: actions/checkout@v4
+
+      - name: Configurazione di Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installazione Dipendenze
+        run: |
+          pip install pyyaml
+
+      - name: Estrazione e Generazione della Scheda Termine
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          python scripts/issue_to_term.py
+
+      - name: Validazione Formale e Semantica del Corpus
+        run: |
+          python scripts/validate_terms.py
+
+      - name: Compilazione Artefatti del Tesauro (JSON e HTML)
+        run: |
+          python scripts/build_thesaurus.py
+
+      - name: Commit e Push delle modifiche su main
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/terms/ DECISIONS.md dist/
+          git commit -m "feat(thesaurus): publish term from approved issue #${{ github.event.issue.number }} [skip ci]"
+          git push
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artefatto Statico
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+      - name: Deploy su GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Notifica e Chiusura della Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🎉 **Termine Approvato e Pubblicato con Successo!**\n\nIl Chief Editor ha approvato la proposta applicando l'etichetta `approved`.\nLa pipeline automatica ha:\n1. Estratto i metadati e generato la scheda Markdown/YAML;\n2. Superato i test di validazione sintattica e ontologica (`validate_terms.py`);\n3. Registrato la delibera in `DECISIONS.md`;\n4. Rigenerato il dataset JSON e pubblicato la nuova versione su GitHub Pages."
+            });
+            await github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            });

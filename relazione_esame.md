@@ -142,16 +142,18 @@ Si è scelto il formato **Markdown con YAML Frontmatter** per garantire anche al
 Consente di combinare metadati strutturati e tipizzati (YAML) con testo argomentativo esteso. Git inoltre traccia i file `.md` riga per riga, è anche  compatibile al 100% con standard W3C SKOS senza dipendenze proprietarie
 Tuttavia l'impiego di Markdown e YAML richiede un parser per la trasformazione nei formati di fruizione finale.
 
-#### 2. Workflow di Pubblicazione Automatica
-Il workflow fa perno sulla generazione di siti statici di GitHub Pages:
+#### Workflow di Pubblicazione Automatica
+Il workflow fa perno sulla generazione di siti statici di GitHub Pages e offre tre modalità di attivazione complementari:
 
-Ad ogni operazione di `push` o `merge` sul ramo `main`, una macchina virtuale isolata esegue `validate_terms.py`: script Python che carica i file `.md`, isola il frontmatter YAML e ne valida la correttezza e `build_thesaurus.py`, uno script Python che aggrega i termini, genera l'indice strutturato (`dist/thesaurus.json`) per la consultazione e compila il portale web statico HTML/CSS/JS (`dist/index.html`). A questo punto avviene il deploy automatico su **GitHub Pages**, garantendo la visibilità immediata e pubblica della nuova versione entro pochi secondi dal merge.
+1. **Attivazione continua su push/merge (`deploy.yml`)**: Ad ogni operazione di `push` o `merge` sul ramo `main`, vienea eseguito `validate_terms.py` (controllo sintattico) e `build_thesaurus.py` (compilazione di `dist/thesaurus.json` e `dist/index.html`), distribuendo in automatico la nuova versione su **GitHub Pages**;
+2. **Attivazione manuale on-demand (`workflow_dispatch`)**: Il *Chief Editor* può lanciare manualmente l'intera suite di validazione e deploy in qualsiasi istante tramite il pulsante "Run workflow" nell'interfaccia web di GitHub Actions;
+3. **Attivazione guidata da Issue (`publish_on_approval.yml`)**: Non appena il comitato approva una proposta e il Chief Editor assegna l'etichetta `approved` alla issue, una GitHub Action dedicata esegue lo script `scripts/issue_to_term.py`: questo estrae i dati strutturati dall'Issue Form, genera la scheda Markdown/YAML in `data/terms/`, registra la delibera in `DECISIONS.md`, valida e compila il tesauro, rilasciando l'aggiornamento e chiudendo la issue con notifica all'utente.
 
-#### 3. Meccanismo di Raccolta Feedback 
+#### Meccanismo di Raccolta Feedback 
 La raccolta dei contributi esterni è mediata da **GitHub Issue Forms** con campi vincolati codificati in formato dichiarativo YAML (`.github/ISSUE_TEMPLATE/`). Vi sono due form, ma il primo è il più importante, perchè si occupa delle prime pubblicaione: Il modulo per nuovi termini (`01_proposta_nuovo_termine.yml`) obbliga il proponente a specificare i termini preferiti in EN e IT, le prospettive di riferimento, una proposta di definizione bilingue, una **motivazione analitica** che spieghi la lacuna colmata e la **citazione obbligatoria delle fonti normative o standard a supporto** (con articolo o clausola). Se l'utente non compila i campi obbligatori o non indica fonti verificabili, il sistema impedisce l'invio o l'amministratore archivia la richiesta come non ammissibile durante il triage, tutelando la qualità del tesauro. 
 Il secondo modulo segue lo stesso paradigma ma per le modifiche.
 
-#### 4. Flusso Editoriale e Giustificazioni Pubbliche
+#### Flusso Editoriale e Giustificazioni Pubbliche
 Il governo editoriale è affidato a un **Comitato Editoriale Interdisciplinare**:
 - **Ruoli**:
   - *Chief Editor / Amministratore del repository*: gestisce il triage delle issue, assegna le revisioni, risolve eventuali deadlock procedurali ed esegue il merge finale;
@@ -160,9 +162,9 @@ Il governo editoriale è affidato a un **Comitato Editoriale Interdisciplinare**
   - *Philosophical Reviewer*: valuta la coerenza dei presupposti etico-concettuali e dei termini emergenti.
 
 **Pubblicazione delle Giustificazioni (Editorial Decision Records)**: 
-Ogni delibera viene motivata pubblicamente mediante due canali integrati: un commento formale firmato dai revisori a conclusione dell'Issue/PR pubblica e l'inserimento immutabile nel registro `DECISIONS.md` rispetto alle decisioni prese, consultabile pubblicamente online e linkato direttamente dal footer del portale web.
+Ogni delibera viene motivata pubblicamente mediante due canali integrati: un commento formale firmato dai revisori a conclusione dell'Issue/PR pubblica e l'inserimento immutabile nel registro `DECISIONS.md` rispetto alle decisioni prese, consultabile pubblicamente online e linkato direttamente dal footer del portale web. Nel caso di pubblicazione automatizzata tramite l'etichetta `approved`, l'inserimento formale del record in `DECISIONS.md` e il commento pubblico di chiusura della issue vengono gestiti direttamente dallo script `issue_to_term.py`.
 
-#### 5. Versionamento e Storico (Consegna 5)
+#### Versionamento e Storico 
 Per documentare e rendere tracciabili tutte le modifiche senza creare confusione tra nomenclature concorrenti, il progetto adotta un'**unica strategia di versionamento formale**: il **Semantic Versioning 2.0.0 (SemVer)** nella forma canonica `MAJOR.MINOR.PATCH` (es. `1.0.0`):
 
 - **MAJOR (es. 2.0.0)**: Ristrutturazione radicale dell'albero concettuale, modifiche strutturali alle relazioni ontologiche, oppure eliminazione o deprecazione di termini consolidati;
@@ -182,6 +184,9 @@ python scripts/validate_terms.py
 
 # 2. Compilazione automatica e generazione del portale web
 python scripts/build_thesaurus.py
+
+# 3. (Opzionale) Conversione automatica da Issue a Termine Markdown
+python scripts/issue_to_term.py --demo
 ```
 
 ### Utilizzo di intelligenza artificiale generativa
@@ -229,7 +234,7 @@ Nonostante i ragguardevoli risultati raggiunti, l'analisi critica ha evidenziato
 Mentre l'AI Act ha forza di regolamento vincolante nello Spazio Economico Europeo, altri quadri (come il NIST statunitense o la Convenzione del Consiglio d'Europa) adottano criteri di classificazione non del tutto sovrapponibili, richiedendo frequenti compromessi redazionali nelle note d'ambito.
 
 <u>La barriera iniziale per contributori non tecnici</u>: 
-Sebbene gli Issue Forms guidino l'utente attraverso campi web semplici, l'eventuale contribuzione diretta tramite Git e creazione di Pull Request richiede una familiarità con il controllo di versione che non tutti i giuristi o filosofi possiedono. Per ovviare a questo limite, il flusso prevede che l'amministratore possa tradurre in Pull Request le proposte validate inviate tramite form web.
+Sebbene gli Issue Forms guidino l'utente attraverso campi web semplici, l'eventuale contribuzione diretta tramite Git e creazione di Pull Request richiede una familiarità con il controllo di versione che non tutti i giuristi o filosofi possiedono. Per superare completamente questo ostacolo, il flusso è stato potenziato con la modalità **ChatOps (`publish_on_approval.yml`)**: la comunità compila esclusivamente moduli web su GitHub, e al Chief Editor basta apporre l'etichetta `approved` per scatenare la conversione automatica da Issue a Markdown/YAML, la registrazione nei registri EDR, la validazione e il deploy, sollevando interamente il comitato dall'uso del terminale o dei comandi Git.
 
 <u>Il mantenimento continuativo del comitato editoriale</u>: 
 L'esigenza di una peer-review multidisciplinare accurata comporta una dipendenza dalla disponibilità temporale di esperti qualificati, fattore che in assenza di adeguati incentivi istituzionali o popolarità della piattaforma può rallentare l'evasione delle richieste nei periodi di picco normativo.
