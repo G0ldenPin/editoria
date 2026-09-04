@@ -77,24 +77,24 @@ def build_web_portal(terms, output_path):
     <style>
         :root {{
             /* Palette Richiesta:
-               - Protagonisti: #40456a (Blu ardesia profondo) & #a5c8d1 (Azzurro luminoso)
-               - Accenti caldi: #d96629 (Arancio vivido) & #d8a37b (Pesca/terracotta morbido)
+               - Protagonisti Verdi: #253122 (Verde bosco profondo) & #437742 (Verde foglia vibrante)
+               - Accenti: #793327 (Rosso mattone / terracotta rustico) & #a6a159 (Oliva dorato caldo)
                - Bianco e nero non puri per il massimo comfort visivo */
-            --c-primary: #40456a;        /* Protagonista 1: Blu ardesia profondo */
-            --c-primary-dark: #292d47;   /* Blu notte intenso per footer e contrasti */
-            --c-secondary: #a5c8d1;      /* Protagonista 2: Azzurro pastello luminoso */
-            --c-secondary-light: #edf5f7;/* Tinta chiarissima di azzurro per sfondi/evidenziazioni */
-            --c-secondary-glow: rgba(165, 200, 209, 0.35);
-            --c-accent-orange: #d96629;  /* Arancione bruciato vivido (CTA/azioni chiave) */
-            --c-accent-peach: #d8a37b;   /* Terracotta / pesca caldo (dettagli/bordi) */
+            --c-primary: #253122;        /* Protagonista 1: Verde scuro bosco profondo */
+            --c-primary-dark: #161e14;   /* Verde notte profondo per footer e contrasti */
+            --c-secondary: #437742;      /* Protagonista 2: Verde foglia vibrante */
+            --c-secondary-light: #edf3ec;/* Tinta chiarissima salvia/foglia per sfondi/evidenziazioni */
+            --c-secondary-glow: rgba(67, 119, 66, 0.35);
+            --c-accent-red: #793327;     /* Accento 1: Rosso mattone / terracotta (CTA/azioni chiave) */
+            --c-accent-olive: #a6a159;   /* Accento 2: Oliva dorato caldo (dettagli/bordi decorativi) */
             
             /* Bianco e Nero non puri */
-            --c-bg: #f4f6f9;             /* Sfondo pagina: bianco seta caldo */
+            --c-bg: #f5f6f3;             /* Sfondo pagina: bianco caldo naturale */
             --c-card-bg: #ffffff;        /* Sfondo tessere: bianco ottico pulito */
-            --c-text: #1b1d28;           /* Testo principale: nero carbone / antracite profondo */
-            --c-text-muted: #565b75;     /* Testo secondario: ardesia medio */
-            --c-border: #dbe3eb;         /* Bordo tenue */
-            --c-border-light: #edf2f7;
+            --c-text: #181b17;           /* Testo principale: nero carbone boschivo profondo */
+            --c-text-muted: #535b50;     /* Testo secondario: ardesia vegetale medio */
+            --c-border: #d8ded6;         /* Bordo tenue */
+            --c-border-light: #ecf0ea;
         }}
         * {{ box-sizing: border-box; margin: 0; padding: 0; }}
         body {{
@@ -110,7 +110,7 @@ def build_web_portal(terms, output_path):
             color: #ffffff;
             padding: 3rem 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(41, 45, 71, 0.15);
+            box-shadow: 0 4px 12px rgba(22, 30, 20, 0.2);
         }}
         header h1 {{
             font-size: 2.3rem;
@@ -120,7 +120,7 @@ def build_web_portal(terms, output_path):
         }}
         header p {{
             font-size: 1.15rem;
-            color: #e3e8f2;
+            color: #e4eae2;
             font-weight: 300;
             max-width: 820px;
             margin: 0 auto 1.6rem;
@@ -133,9 +133,9 @@ def build_web_portal(terms, output_path):
             flex-wrap: wrap;
         }}
         .badge {{
-            background: rgba(165, 200, 209, 0.15);
-            border: 1px solid rgba(165, 200, 209, 0.45);
-            color: #f1f6f8;
+            background: rgba(67, 119, 66, 0.25);
+            border: 1px solid rgba(166, 161, 89, 0.45);
+            color: #f3f6f2;
             font-weight: 500;
             padding: 0.35rem 0.85rem;
             border-radius: 9999px;
@@ -152,7 +152,7 @@ def build_web_portal(terms, output_path):
             background: var(--c-card-bg);
             border-radius: 14px;
             padding: 1.6rem;
-            box-shadow: 0 10px 25px -5px rgba(64, 69, 106, 0.08), 0 4px 6px -2px rgba(64, 69, 106, 0.03);
+            box-shadow: 0 10px 25px -5px rgba(37, 49, 34, 0.08), 0 4px 6px -2px rgba(37, 49, 34, 0.03);
             border: 1px solid var(--c-border);
             margin-bottom: 2rem;
             display: flex;
@@ -219,7 +219,7 @@ def build_web_portal(terms, output_path):
             color: #ffffff;
             border-color: var(--c-primary);
             font-weight: 600;
-            box-shadow: 0 2px 5px rgba(64, 69, 106, 0.25);
+            box-shadow: 0 2px 5px rgba(37, 49, 34, 0.25);
         }}
         .btn-download {{
             background: var(--c-secondary-light);
@@ -229,7 +229,7 @@ def build_web_portal(terms, output_path):
         }}
         .btn-download:hover {{
             background: var(--c-secondary);
-            color: var(--c-primary-dark);
+            color: #ffffff;
             border-color: var(--c-secondary);
         }}
         
@@ -244,7 +244,7 @@ def build_web_portal(terms, output_path):
             border: 1px solid var(--c-border);
             border-top: 4px solid var(--c-primary);
             padding: 1.6rem;
-            box-shadow: 0 4px 6px -1px rgba(64, 69, 106, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(37, 49, 34, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -252,7 +252,7 @@ def build_web_portal(terms, output_path):
         }}
         .concept-card:hover {{
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px -4px rgba(64, 69, 106, 0.12);
+            box-shadow: 0 12px 24px -4px rgba(37, 49, 34, 0.14);
             border-top-color: var(--c-secondary);
         }}
         .card-header {{ margin-bottom: 1rem; }}
@@ -284,19 +284,19 @@ def build_web_portal(terms, output_path):
             border-radius: 6px;
         }}
         .tag-normativa-giuridica {{
-            background: #e6f1f4;
-            color: #1a424e;
+            background: #eaf2e9;
+            color: #1d3d1b;
             border: 1px solid var(--c-secondary);
         }}
         .tag-tecnico-operativa {{
-            background: #ebedf5;
+            background: #ebedeb;
             color: var(--c-primary);
-            border: 1px solid #b7bcd4;
+            border: 1px solid #aeb6ac;
         }}
         .tag-concettuale-filosofica {{
-            background: #faeee7;
-            color: #924016;
-            border: 1px solid var(--c-accent-peach);
+            background: #f6ecea;
+            color: #5e2218;
+            border: 1px solid var(--c-accent-red);
         }}
         
         .card-body {{ margin-bottom: 1.2rem; }}
@@ -334,7 +334,7 @@ def build_web_portal(terms, output_path):
         }}
         .rel-badge {{
             display: inline-block;
-            background: #ebedf5;
+            background: #eff2ee;
             padding: 0.18rem 0.55rem;
             border-radius: 6px;
             margin-right: 0.35rem;
@@ -344,12 +344,12 @@ def build_web_portal(terms, output_path):
             font-weight: 500;
             font-size: 0.82rem;
             text-decoration: none;
-            border: 1px solid #d5dbe4;
+            border: 1px solid #d4dbd2;
             transition: all 0.15s;
         }}
         .rel-badge:hover {{
             background: var(--c-secondary);
-            color: var(--c-primary-dark);
+            color: #ffffff;
             border-color: var(--c-secondary);
         }}
         
@@ -375,7 +375,7 @@ def build_web_portal(terms, output_path):
             font-weight: 500;
         }}
         .source-entry a:hover {{
-            color: var(--c-accent-orange);
+            color: var(--c-accent-red);
             text-decoration: underline;
         }}
         
@@ -394,8 +394,8 @@ def build_web_portal(terms, output_path):
             align-items: center;
             gap: 0.35rem;
             background: #ffffff;
-            color: var(--c-accent-orange);
-            border: 1px solid var(--c-accent-orange);
+            color: var(--c-accent-red);
+            border: 1px solid var(--c-accent-red);
             padding: 0.35rem 0.75rem;
             border-radius: 6px;
             text-decoration: none;
@@ -404,19 +404,19 @@ def build_web_portal(terms, output_path):
             transition: all 0.2s;
         }}
         .btn-feedback:hover {{
-            background: var(--c-accent-orange);
+            background: var(--c-accent-red);
             color: #ffffff;
-            box-shadow: 0 2px 6px rgba(217, 102, 41, 0.35);
+            box-shadow: 0 2px 6px rgba(121, 51, 39, 0.35);
         }}
         
         footer {{
             text-align: center;
             padding: 2.8rem 1.5rem;
             background: var(--c-primary-dark);
-            color: #cbd5e1;
+            color: #cbd3ca;
             font-size: 0.92rem;
             margin-top: 4rem;
-            border-top: 4px solid var(--c-accent-peach);
+            border-top: 4px solid var(--c-accent-olive);
         }}
         footer p {{
             margin-bottom: 0.4rem;
@@ -426,7 +426,7 @@ def build_web_portal(terms, output_path):
             font-weight: 600;
         }}
         footer a {{
-            color: var(--c-secondary);
+            color: var(--c-accent-olive);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.15s;
