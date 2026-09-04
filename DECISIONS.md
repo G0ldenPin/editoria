@@ -82,3 +82,17 @@ Ogni delibera segue il seguente schema formale:
 - **Esito**: `APPROVATO`
 - **Giustificazione Pubblica**:
   > Il concetto di bias algoritmico è centrale per la prevenzione delle discriminazioni nell'AI Act (Art. 10 sui requisiti di qualità dei dati) e costituisce la metrica fondamentale di verifica tecnica secondo lo standard ISO/IEC 24027.
+
+---
+
+### EDR-2026-005: Inclusione automatica del termine "test1 / test1"
+- **Data**: 2026-09-04
+- **Termine**: `test1` (test1 / test1)
+- **Tipologia**: Nuovo Termine (Flusso da GitHub Issue)
+- **Issue di Riferimento**: #1
+- **Revisori**:
+  - *Chief Editor* (Amministrazione e Triage)
+  - *Comitato Interdisciplinare* (Consenso accertato con label 'approved')
+- **Esito**: `APPROVATO`
+- **Giustificazione Pubblica**:
+  > bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
