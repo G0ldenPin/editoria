@@ -9,8 +9,6 @@ version: 1.0
 kind: Document
 ---
 
-// logo Unimi broken, aggiungerlo
-
 # Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
 ### Armonizzazione delle dimensioni normativa, tecnico-operativa e concettuale attraverso Git, W3C SKOS e pubblicazione continua
 
@@ -98,8 +96,6 @@ La diffusione del prodotto editoriale persegue una strategia di **multicanalità
    - *Target*: Consultazione istituzionale e archiviazione.
    - *Pipeline*: Compilazione tramite Pandoc dei file Markdown sorgente con metadati tipografici in formati PDF/LaTeX ed ePub3 standard.
 
-*Identità visuale e stile tipografico*: Il portale adotta uno stile formale, istituzionale e accessibile conforme alle linee guida WCAG 2.1 AA. La palette cromatica sfrutta il blu istituzionale (`#1a365d`) per trasmettere autorevolezza, associato al verde per i riferimenti normativi, al ciano per gli standard tecnici e all'ambra per le questioni concettuali-etiche. Il font di lettura è un set modulare ad alta leggibilità su schermo (*system sans-serif*).
-
 ---
 
 ## Processo di Produzione
@@ -145,12 +141,12 @@ Tuttavia l'impiego di Markdown e YAML richiede un parser per la trasformazione n
 #### Workflow di Pubblicazione Automatica
 Il workflow fa perno sulla generazione di siti statici di GitHub Pages e offre tre modalità di attivazione complementari:
 
-1. **Attivazione continua su push/merge (`deploy.yml`)**: Ad ogni operazione di `push` o `merge` sul ramo `main`, vienea eseguito `validate_terms.py` (controllo sintattico) e `build_thesaurus.py` (compilazione di `dist/thesaurus.json` e `dist/index.html`), distribuendo in automatico la nuova versione su **GitHub Pages**;
+1. **Attivazione continua su push/merge (`deploy.yml`)**: Ad ogni operazione di `push` o `merge` sul ramo `main`, viene eseguito `validate_terms.py` (controllo sintattico) e `build_thesaurus.py` (compilazione di `dist/thesaurus.json` e `dist/index.html`), distribuendo in automatico la nuova versione su **GitHub Pages**;
 2. **Attivazione manuale on-demand (`workflow_dispatch`)**: Il *Chief Editor* può lanciare manualmente l'intera suite di validazione e deploy in qualsiasi istante tramite il pulsante "Run workflow" nell'interfaccia web di GitHub Actions;
-3. **Attivazione guidata da Issue (`publish_on_approval.yml`)**: Non appena il comitato approva una proposta e il Chief Editor assegna l'etichetta `approved` alla issue, una GitHub Action dedicata esegue lo script `scripts/issue_to_term.py`: questo estrae i dati strutturati dall'Issue Form, genera la scheda Markdown/YAML in `data/terms/`, registra la delibera in `DECISIONS.md`, valida e compila il tesauro, rilasciando l'aggiornamento e chiudendo la issue con notifica all'utente.
+3. **Attivazione guidata da Issue (`publish_on_approval.yml`)**: Non appena il comitato approva una proposta e il Chief Editor assegna l'etichetta `approved` (o `Approved`/`approvato`) alla issue, una GitHub Action dedicata esegue lo script `scripts/issue_to_term.py`: questo estrae i dati strutturati dall'Issue Form, genera la scheda Markdown/YAML in `data/terms/`, registra la delibera in `DECISIONS.md`, valida, compila il tesauro e pubblica immediatamente il portale aggiornato su **GitHub Pages**, chiudendo la issue con commento di notifica.
 
 #### Meccanismo di Raccolta Feedback 
-La raccolta dei contributi esterni è mediata da **GitHub Issue Forms** con campi vincolati codificati in formato dichiarativo YAML (`.github/ISSUE_TEMPLATE/`). Vi sono due form, ma il primo è il più importante, perchè si occupa delle prime pubblicaione: Il modulo per nuovi termini (`01_proposta_nuovo_termine.yml`) obbliga il proponente a specificare i termini preferiti in EN e IT, le prospettive di riferimento, una proposta di definizione bilingue, una **motivazione analitica** che spieghi la lacuna colmata e la **citazione obbligatoria delle fonti normative o standard a supporto** (con articolo o clausola). Se l'utente non compila i campi obbligatori o non indica fonti verificabili, il sistema impedisce l'invio o l'amministratore archivia la richiesta come non ammissibile durante il triage, tutelando la qualità del tesauro. 
+La raccolta dei contributi esterni è mediata da **GitHub Issue Forms** con campi vincolati codificati in formato dichiarativo YAML (`.github/ISSUE_TEMPLATE/`). Vi sono due moduli strutturati: il primo e principale è dedicato alla proposta di nuovi termini (`01_proposta_nuovo_termine.yml`), che obbliga il proponente a specificare i termini preferiti in EN e IT, le prospettive di riferimento, una proposta di definizione bilingue, una **motivazione analitica** che spieghi la lacuna colmata e la **citazione obbligatoria delle fonti normative o standard a supporto** (con articolo o clausola). Se l'utente non compila i campi obbligatori o non indica fonti verificabili, il sistema impedisce l'invio o l'amministratore archivia la richiesta come non ammissibile durante il triage, tutelando la qualità del tesauro. 
 Il secondo modulo segue lo stesso paradigma ma per le modifiche.
 
 #### Flusso Editoriale e Giustificazioni Pubbliche
@@ -198,7 +194,7 @@ Per la stesura del progetto, è stato usato il modello **Gemini 3.8 Flash (high)
 Lo scripting è stata una necessaria eccezione causa della superiorità di Python rispetto ad altre alternative, in particolar modo per la pubblicazione del progetto su GitHub e la sua portabilità.
 Ho anche chiesto al modello di pormi delle domande all'interno del piano proposto, lasciando il meno possibile al caso.
 
-In seguito a questo primo propmt, l'output è stato abbastanza completo e rispettava i criteri imposti, tuttavia controllando ogni file è risaltato l'utilizzo di tecnologie non richieste come un file `.bib` e `.ttl`, che sono stati eliminati e il progetto revisionato di modo che non ci fosse più una dipendenza. A quel punto il lavoro è stato prettamente di lettura, bug hunting e correzione.
+In seguito a questo primo prompt, l'output è stato abbastanza completo e rispettava i criteri imposti, tuttavia controllando ogni file è risaltato l'utilizzo di tecnologie non richieste come un file `.bib` e `.ttl`, che sono stati eliminati e il progetto revisionato di modo che non ci fosse più una dipendenza. A quel punto il lavoro è stato prettamente di lettura, bug hunting e correzione.
 
 L'intervento del modello è stato cruciale per accorciare le tempistiche e soprattutto per proporre delle idee e avere un riscontro rispetto alla difficoltà di implementazione o eventuali deadlock che non avevo previsto, ma anche per il supporto nello sviluppo in linguaggi poco familiari, tuttavia è stato fondamentale per me ispezionare la produzione e fare in modo di comprendere il progetto a pieno, per poterlo rendere mio e spiegarlo ad altre persone.
 
@@ -247,7 +243,7 @@ Come da consegna, è stato programmato un semplice file web statico per comunica
 
 ### Wireframe Concettuale dell'Interfaccia di Consultazione
 
-L'interfaccia implementata (disponibile nel file `dist/index.html` e testabile direttamente nel browser) offre:
+L'interfaccia implementata (consultabile online su [GitHub Pages](https://g0ldenpin.github.io/editoria/) e testabile in locale nel file `dist/index.html`) offre:
 Filtraggio istantaneo dei termini per corrispondenza in etichette preferite, varianti sinonimiche o testo delle definizioni sia in inglese che in italiano.
 Il toggle IT/EN aggiorna la priorità visiva di tutte le schede, presentando in primo piano la definizione nella lingua selezionata e la traduzione a fronte come sottotitolo.
 Cliccando sui badge delle relazioni *Broader*, *Narrower* o *Related*, l'interfaccia effettua uno scorrimento fluido (*smooth scroll*) con evidenziazione visiva temporanea del termine correlato.
