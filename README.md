@@ -46,7 +46,7 @@ start dist/index.html
 
 ---
 
-### Rispondenza alle Consegne dell'Esercizio d'Esame
+### Consegne dell'Esercizio d'Esame
 
 1. **Formato Sorgente**: Formato ibrido Markdown con YAML frontmatter strutturato e allineato a concetti semantici (SKOS). Massima leggibilità per un comitato interdisciplinare, perfetta gestione delle differenze riga per riga su Git, assenza di lock-in proprietari e compilazione automatica in JSON e HTML.
 2. **Workflow di Pubblicazione**: Architettura di generazione di siti statici pilotata da Git. Pipeline GitHub Actions automatizzata che valida e compila i sorgenti ad ogni commit su `main`, distribuendo il portale su GitHub Pages.
