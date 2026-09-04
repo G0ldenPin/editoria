@@ -9,7 +9,7 @@ version: 1.0
 kind: Document
 ---
 
-![Logo UNIMI](./img/LogoHeader.svg)
+![Logo UNIMI](./img/LogoHeader.jpg)
 
 # Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
 ### Armonizzazione delle dimensioni normativa, tecnico-operativa e concettuale attraverso Git, W3C SKOS e pubblicazione continua
