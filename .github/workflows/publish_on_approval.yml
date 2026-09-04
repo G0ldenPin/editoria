@@ -1,4 +1,4 @@
-﻿name: Pubblicazione Automatica da Issue Approvata
+name: Pubblicazione Automatica da Issue Approvata
 
 on:
   issues:
@@ -17,11 +17,16 @@ concurrency:
 jobs:
   publish-from-issue:
     name: Conversione e Pubblicazione del Termine Approvato
-    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'nuovo-termine')
+    if: contains(fromJSON('["approved", "Approved", "approvato", "Approvato"]'), github.event.label.name)
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout del Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Configurazione di Python
         uses: actions/setup-python@v5
@@ -36,6 +41,7 @@ jobs:
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
           python scripts/issue_to_term.py
 
@@ -52,7 +58,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data/terms/ DECISIONS.md dist/
-          git commit -m "feat(thesaurus): publish term from approved issue #${{ github.event.issue.number }} [skip ci]"
+          git commit -m "feat(thesaurus): publish term from approved issue #${{ github.event.issue.number }}" || echo "Nessuna modifica da committare"
           git push
 
       - name: Setup GitHub Pages
@@ -75,7 +81,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "🎉 **Termine Approvato e Pubblicato con Successo!**\n\nIl Chief Editor ha approvato la proposta applicando l'etichetta `approved`.\nLa pipeline automatica ha:\n1. Estratto i metadati e generato la scheda Markdown/YAML;\n2. Superato i test di validazione sintattica e ontologica (`validate_terms.py`);\n3. Registrato la delibera in `DECISIONS.md`;\n4. Rigenerato il dataset JSON e pubblicato la nuova versione su GitHub Pages."
+              body: "🎉 **Termine Approvato e Pubblicato con Successo!**\n\nIl Chief Editor ha approvato la proposta applicando l'etichetta `" + context.payload.label.name + "`.\nLa pipeline automatica ha:\n1. Estratto i metadati e generato la scheda Markdown/YAML in `data/terms/`;\n2. Superato i test di validazione sintattica e ontologica (`validate_terms.py`);\n3. Registrato la delibera in `DECISIONS.md`;\n4. Rigenerato il dataset JSON e distribuito il portale aggiornato su GitHub Pages: https://g0ldenpin.github.io/editoria/"
             });
             await github.rest.issues.update({
               issue_number: context.issue.number,

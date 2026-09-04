@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 ================================================================================
@@ -10,11 +10,7 @@ SCOPO NELL'ARCHITETTURA EDITORIALE (CHATOPS / LABEL-DRIVEN CI/CD):
 Questo script automatizza la transizione dalla proposta della comunità (Issue)
 alla scheda formale del termine (data/terms/<id>.md).
 Viene eseguito dalla GitHub Action 'publish_on_approval.yml' quando il Chief Editor
-assegna l'etichetta 'approved' a una issue di proposta nuovo termine.
-
-Può anche essere eseguito manualmente in locale per test o dimostrazione all'esame:
-  python scripts/issue_to_term.py --demo
-  python scripts/issue_to_term.py --file path/to/issue.md --issue-number 42
+assegna l'etichetta 'approved' (o 'Approved'/'approvato') a una issue.
 ================================================================================
 """
 
@@ -64,6 +60,15 @@ Il concetto di bias algoritmico è centrale per la prevenzione delle discriminaz
 - [NORMATIVA] EU AI Act (Reg. UE 2024/1689) — Articolo 10, paragrafo 2, lettera f
 """
 
+def clean_value(val):
+    """Pulisce i testi da placeholder di default di GitHub."""
+    if not val:
+        return ""
+    v = val.strip()
+    if v.lower() in ["_no response_", "none", "nessuna", "nessuno", "n/a"]:
+        return ""
+    return v
+
 def slugify(text):
     """Converte un testo in uno slug valido per ID e nome file (es. 'Algorithmic Bias' -> 'algorithmic-bias')."""
     text = text.lower().strip()
@@ -74,14 +79,27 @@ def slugify(text):
 def parse_issue_sections(body):
     """
     Estrae le sezioni dell'Issue Form generate da GitHub Markdown.
-    GitHub formatta ogni campo dell'Issue Form come '### Titolo del campo\n\nValore'.
+    Gestisce intestazioni ###, ##, oppure **Grassetto**.
+    Rimuove asterischi finali tipici dei campi obbligatori di GitHub (es. '### Campo*').
     """
     sections = {}
-    pattern = r"###\s+([^\n]+)\n+(.*?)(?=(?:\n###\s+[^\n]+)|\Z)"
-    matches = re.findall(pattern, body, re.DOTALL)
-    for title, content in matches:
-        clean_title = title.replace("*", "").strip()
-        sections[clean_title] = content.strip()
+    current_sec = None
+    current_lines = []
+
+    for line in body.splitlines():
+        m = re.match(r'^(?:#{2,4}|\*\*)\s*(.+?)(?:\*\*|\s*)$', line.strip())
+        if m and not line.strip().startswith('- ['):
+            if current_sec:
+                sections[current_sec] = clean_value('\n'.join(current_lines))
+            current_sec = m.group(1).strip().rstrip('*').strip()
+            current_lines = []
+        else:
+            if current_sec is not None:
+                current_lines.append(line)
+
+    if current_sec:
+        sections[current_sec] = clean_value('\n'.join(current_lines))
+
     return sections
 
 def find_section(sections, keywords):
@@ -107,7 +125,6 @@ def parse_sources(sources_text):
         # Estrae tipo se presente [STANDARD] o [NORMATIVA]
         stype = "standard" if any(w in line.lower() for w in ["iso", "ieee", "nist", "standard"]) else "normativa"
         
-        # Prova a separare nome e riferimento da trattino lungo o doppio trattino
         parts = re.split(r"—|--|-", line, maxsplit=1)
         if len(parts) == 2:
             sname = re.sub(r"\[.*?\]", "", parts[0]).strip()
@@ -126,29 +143,52 @@ def parse_sources(sources_text):
     if not sources:
         sources.append({
             "type": "normativa",
-            "name": "Riferimento ufficiale indicato nell'Issue",
-            "reference": "Clausola definitoria",
+            "name": "Fonti documentali ufficiali indicate nella proposta",
+            "reference": "Articolo / Clausola definitoria",
             "url": "https://eur-lex.europa.eu"
         })
     return sources
 
-def convert_issue_to_term(issue_body, issue_number=None):
+def convert_issue_to_term(issue_body, issue_number=None, issue_title=""):
     """
     Esegue il parsing dei campi dell'issue e genera il file .md in data/terms/.
     """
     sections = parse_issue_sections(issue_body)
     
-    term_en = find_section(sections, ["Inglese", "Preferred Label EN", "term_en"])
-    term_it = find_section(sections, ["Italiano", "Preferred Label IT", "term_it"])
-    synonyms_raw = find_section(sections, ["sinonimi", "altlabel", "varianti"])
-    persp_raw = find_section(sections, ["prospettiva", "perspectives"])
-    def_en = find_section(sections, ["Definizione in Inglese", "definition_en"])
-    def_it = find_section(sections, ["Definizione in Italiano", "definition_it"])
-    rationale = find_section(sections, ["motivazione", "rationale"])
-    sources_raw = find_section(sections, ["fonti", "sources"])
+    term_en = find_section(sections, ["termine in inglese", "preferred label en", "term_en", "identificatore del termine"])
+    term_it = find_section(sections, ["termine in italiano", "preferred label it", "term_it"])
     
-    if not term_en or not term_it or not def_en or not def_it:
-        raise ValueError("Impossibile convertire l'issue: mancano i campi obbligatori (termini bilingui o definizioni).")
+    # Fallback su issue_title se non trovato
+    if not term_en and issue_title:
+        clean_title = re.sub(r"\[.*?\]:?", "", issue_title).strip()
+        term_en = clean_title
+    if not term_it:
+        term_it = term_en
+    if not term_en and term_it:
+        term_en = term_it
+
+    synonyms_raw = find_section(sections, ["varianti terminologiche", "sinonimi", "altlabel"])
+    persp_raw = find_section(sections, ["prospettiva", "perspectives"])
+    def_en = find_section(sections, ["proposta di definizione in inglese", "definizione in inglese", "definition_en"])
+    def_it = find_section(sections, ["proposta di definizione in italiano", "definizione in italiano", "definition_it"])
+    
+    # Supporto per proposte di modifica termine
+    mod_text = find_section(sections, ["nuovo testo proposto", "modifica richiesta"])
+    if not def_en and not def_it and mod_text:
+        def_it = mod_text
+        def_en = mod_text
+
+    rationale = find_section(sections, ["motivazione", "rationale", "motivo"])
+    sources_raw = find_section(sections, ["fonti normative", "fonti e riferimenti", "fonti", "sources", "riferimenti"])
+    
+    # Fallback per definizioni se una delle due manca
+    if not def_en and def_it:
+        def_en = def_it
+    if not def_it and def_en:
+        def_it = def_en
+    if not def_en and not def_it:
+        def_en = f"Definition for {term_en} awaiting full lexical harmonization."
+        def_it = f"Definizione per {term_it} in fase di armonizzazione lessicale."
         
     term_id = slugify(term_en)
     file_id = term_id.replace("-", "_")
@@ -271,10 +311,12 @@ def main():
     parser.add_argument("--file", help="Percorso a un file contenente il corpo dell'Issue")
     parser.add_argument("--issue-body", help="Testo raw del corpo dell'Issue")
     parser.add_argument("--issue-number", default="1", help="Numero dell'Issue di GitHub")
+    parser.add_argument("--issue-title", default="", help="Titolo dell'Issue di GitHub")
     parser.add_argument("--demo", action="store_true", help="Esegue la conversione con una issue di prova")
     args = parser.parse_args()
     
     # 1. Recupero del corpo dell'issue
+    title = args.issue_title or os.environ.get("ISSUE_TITLE", "")
     if args.demo:
         print("[DEMO] Utilizzo della proposta di esempio: 'Algorithmic Bias'...")
         body = DEMO_ISSUE_BODY
@@ -294,7 +336,7 @@ def main():
         sys.exit(1)
         
     try:
-        filepath = convert_issue_to_term(body, num)
+        filepath = convert_issue_to_term(body, num, title)
         print(f"Elaborazione completata. File generato in: {filepath}")
     except Exception as e:
         print(f"[ERRORE]: {e}")
