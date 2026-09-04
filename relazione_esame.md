@@ -25,8 +25,7 @@ Nel contesto odierno, la rapida evoluzione dei sistemi algoritmici genera freque
 2. La comunità **tecnico-operativa**, che progetta e verifica i sistemi secondo gli standard internazionali di riferimento, in particolare ISO/IEC 22989:2022 (*Concepts and terminology*), ISO/IEC 23894:2023 (*AI Risk Management*) e il *NIST AI Risk Management Framework (AI RMF 1.0)*;
 3. La comunità **concettuale-filosofica**, focalizzata sulle implicazioni etiche, sui concetti emergenti (es. *IA agentica*, autonomia operativa, allineamento) e sulla salvaguardia della dignità e della supervisione umana (*Human Oversight*).
 
-L'**obiettivo primario** del progetto è trasformare il tesauro da statico glossario a **prodotto editoriale dinamico e "vivo"**, capace di evolvere in modo controllato attraverso il contributo degli esperti. Il flusso documentale progettato garantisce:
-- L'adozione di un formato sorgente leggero, versionabile e interoperabile basato su **Markdown con metadati strutturati YAML conformi allo standard semantico W3C SKOS** (*Simple Knowledge Organization System*);
+L'**obiettivo primario** del progetto è trasformare il tesauro da statico glossario a **prodotto editoriale dinamico e "vivo"**, capace di evolvere in modo controllato attraverso il contributo degli esperti. Il flusso documentale progettato garantisce l'adozione di un formato sorgente leggero, versionabile e interoperabile basato su **Markdown con metadati strutturati YAML conformi allo standard semantico W3C SKOS** (*Simple Knowledge Organization System*);
 - L'automazione end-to-end del processo di validazione, compilazione e pubblicazione web tramite **Git, GitHub Actions e GitHub Pages**;
 - Un meccanismo formale di raccolta e revisione dei contributi della comunità basato su **GitHub Issue Forms** con obbligo inderogabile di motivazione e indicazione delle fonti normative e standard;
 - Un modello di governance editoriale interdisciplinare con **pubblicazione trasparente delle giustificazioni decisionali** archiviate in un registro pubblico immutabile (*Editorial Decision Records - EDR*);
@@ -44,33 +43,46 @@ L'attenzione pubblica e accademica su questo tema ha registrato un trend esponen
 ### Destinatari
 Per orientare la progettazione editoriale e soddisfare i principi della *User Experience* e della teoria della progettazione centrate sull'utente, sono state definite tre *personas* rappresentative dei principali gruppi di interesse:
 
-1. **Dott.ssa Elena Rossi (Persona 1 - Area Giuridica e Policy)**
-   - *Ruolo*: Funzionaria dell'Autorità Nazionale di Vigilanza sull'IA ed esperta di compliance normativa.
-   - *Bisogni*: Necessita di consultare con immediatezza le definizioni legali vincolanti fornite dall'AI Act e dal DDL italiano 2025, verificando se e come tali concetti corrispondano alle nozioni tecniche ISO/IEC, per formulare linee guida applicative e pareri ispettivi coerenti.
-   - *Scenario d'uso*: Riceve un quesito sulla qualificazione di un modello come "GPAI con rischio sistemico". Consulta il tesauro, filtra per la prospettiva giuridica e lo standard ISO/IEC 22989, ed estrae la scheda terminologica bilingue da allegare alla delibera.
+<div style="border: 1px solid black; padding: 10px; width: auto;">
+  <b>Dott.ssa Elena Rossi (Area Giuridica e Policy)</b> <br> <br>
+  <i>Ruolo</i>: Funzionaria dell'Autorità Nazionale di Vigilanza sull'IA ed esperta di compliance normativa. <br>
+<br>
+  <i>Bisogni</i>: Necessita di consultare con immediatezza le definizioni legali vincolanti fornite dall'AI Act e dal DDL italiano 2025, verificando se e come tali concetti corrispondano alle nozioni tecniche ISO/IEC, per formulare linee guida applicative e pareri ispettivi coerenti. <br>
+  <br>
+  <i>Scenario d'uso</i>: Riceve un quesito sulla qualificazione di un modello come "GPAI con rischio sistemico". Consulta il tesauro, filtra per la prospettiva giuridica e lo standard ISO/IEC 22989, ed estrae la scheda terminologica bilingue da allegare alla delibera.
+</div>
 
-2. **Ing. Marco Bianchi (Persona 2 - Area Tecnico-Operativa)**
-   - *Ruolo*: AI Safety Engineer e Lead Architect in un'azienda sviluppatrice di soluzioni software enterprise.
-   - *Bisogni*: Deve redigere il fascicolo tecnico e il piano di gestione del rischio ai sensi di ISO/IEC 23894:2023 e del NIST AI RMF per un sistema decisionale. Necessita di un linguaggio rigoroso che non crei ambiguità durante l'audit di conformità con i valutatori terzi.
-   - *Scenario d'uso*: Durante l'implementazione di un agente basato su LLM, deve definire i parametri operativi di *Human Oversight*. Cerca il termine nel portale, ne analizza i concetti correlati (*human-in-the-loop*, *human-on-the-loop*) e integra le clausole standard nel codice e nella documentazione di progetto.
+<br>
 
-3. **Prof.ssa Sofia Conti (Persona 3 - Area Etico-Filosofica e Ricerca)**
-   - *Ruolo*: Docente universitaria di Etica delle Tecnologie Emergenti e membro di comitati etici indipendenti.
-   - *Bisogni*: Studia l'evoluzione terminologica delle nuove frontiere dell'autonomia artificiale (*Agentic AI*). Vuole proporre l'inclusione di nuovi termini emergenti con solide argomentazioni teoriche e monitorare la trasparenza delle scelte lessicali.
-   - *Scenario d'uso*: Riscontra l'assenza di una variante terminologica essenziale relativa all'autonomia deliberativa degli agenti software. Accede al repository del tesauro, apre una proposta strutturata tramite l'Issue Form indicando fonti bibliografiche e motivazione, e partecipa alla peer-review pubblica con il comitato editoriale.
+<div style="border: 1px solid black; padding: 10px; width: auto;">
+  <b>Ing. Marco Bianchi (Area Tecnico-Operativa)</b> <br> <br>
+  <i>Ruolo</i>: AI Safety Engineer e Lead Architect in un'azienda sviluppatrice di soluzioni software enterprise. <br>
+<br>
+  <i>Bisogni</i>: Deve redigere il fascicolo tecnico e il piano di gestione del rischio ai sensi di ISO/IEC 23894:2023 e del NIST AI RMF per un sistema decisionale. Necessita di un linguaggio rigoroso che non crei ambiguità durante l'audit di conformità con i valutatori terzi. <br>
+  <br>
+  <i>Scenario d'uso</i>: Durante l'implementazione di un agente basato su LLM, deve definire i parametri operativi di *Human Oversight*. Cerca il termine nel portale, ne analizza i concetti correlati (<b>human-in-the-loop</b>) e integra le clausole standard nel codice e nella documentazione di progetto.
+</div>
+
+<br>
+
+<div style="border: 1px solid black; padding: 10px; width: auto;">
+  <b>Prof.ssa Sofia Conti (Area Etico-Filosofica e Ricerca)</b> <br> <br>
+  <i>Ruolo</i>: Docente universitaria di Etica delle Tecnologie Emergenti e membro di comitati etici indipendenti. <br>
+<br>
+  <i>Bisogni</i>: Studia l'evoluzione terminologica delle nuove frontiere dell'autonomia artificiale (Agentic AI). Vuole proporre l'inclusione di nuovi termini emergenti con solide argomentazioni teoriche e monitorare la trasparenza delle scelte lessicali. <br>
+  <br>
+  <i>Scenario d'uso</i>: Riscontra l'assenza di una variante terminologica essenziale relativa all'autonomia deliberativa degli agenti software. Accede al repository del tesauro, apre una proposta strutturata tramite l'Issue Form indicando fonti bibliografiche e motivazione, e partecipa alla peer-review pubblica con il comitato editoriale.
+</div>
+
 
 ### Requisiti di accettazione
 L'adozione del tesauro è stata modellata attraverso i costrutti del **Technology Acceptance Model (TAM)**:
 
-- **Utilità Percepita**:
-  - *Qualità e autorevolezza del risultato*: I termini sono corroborati da puntuali riferimenti normativi (articoli di legge) e standard internazionali (clausole ISO/NIST), eliminando il rischio di definizioni arbitrarie.
-  - *Accesso immediato e riduzione dei tempi*: Il motore di ricerca e i filtri bilingui consentono a giuristi e tecnici di reperire definizioni e relazioni semantiche in pochi secondi, riducendo i tempi di redazione degli atti e dei fascicoli tecnici.
-  - *Allineamento agli standard formali*: L'adozione dello standard **W3C SKOS** assicura che il tesauro non sia un prodotto isolato, ma una risorsa interoperabile inserita nella rete dei *Linked Open Data*.
+**Utilità Percepita**:
+I termini sono corroborati da puntuali riferimenti normativi (articoli di legge) e standard internazionali (clausole ISO/NIST), eliminando il rischio di definizioni arbitrarie. Il motore di ricerca e i filtri bilingui consentono a giuristi e tecnici di reperire definizioni e relazioni semantiche in pochi secondi, riducendo i tempi di redazione degli atti e dei fascicoli tecnici. L'adozione dello standard **W3C SKOS** assicura che il tesauro non sia un prodotto isolato, ma una risorsa interoperabile inserita nella rete dei *Linked Open Data*.
 
-- **Facilità d'Uso Percepita (Perceived Ease of Use - PEOU)**:
-  - *Riconoscibilità e familiarità*: L'interfaccia pubblica adotta pattern visivi consolidati (tessere concettuali, tag colorati per prospettiva, navigazione ipertestuale delle relazioni BT/NT/RT).
-  - *Bassa curva di apprendimento per i contributori*: La scelta del formato sorgente **Markdown con YAML frontmatter** permette anche a profili non strettamente informatici di visualizzare e proporre termini senza dover apprendere complesse sintassi XML o linguaggi ontologici proprietari.
-  - *Portabilità totale*: I contenuti risiedono in file di testo puro UTF-8 gestiti tramite Git, liberando l'iniziativa da qualsiasi lock-in verso piattaforme proprietarie.
+**Facilità d'Uso Percepita (Perceived Ease of Use - PEOU)**:
+L'interfaccia pubblica adotta pattern visivi consolidati (tessere concettuali, tag colorati per prospettiva, navigazione ipertestuale delle relazioni BT/NT/RT). La scelta del formato sorgente **Markdown con YAML frontmatter** permette anche a profili non strettamente informatici di visualizzare e proporre termini senza dover apprendere complesse sintassi XML o linguaggi ontologici proprietari, tuttavia, i profili meno tecnici potrebbero essere riluttanti a usare una piattaforma "nuova" come GitHub. I contenuti risiedono in file di testo puro UTF-8 gestiti tramite Git, liberando l'iniziativa da qualsiasi lock-in verso piattaforme proprietarie.
 
 ### Canali di distribuzione
 La diffusione del prodotto editoriale persegue una strategia di **multicanalità integrata**, sfruttando la natura a costo marginale zero del bene digitale:
@@ -96,8 +108,8 @@ La diffusione del prodotto editoriale persegue una strategia di **multicanalità
 Un tesauro come quello descritto nel tema non è un archivio normativo o una raccolta indiscriminata di testi: l'acquisizione dei contenuti non può avvenire tramite ingestione automatizzata (web scraping o parsing massivo), la quale produrrebbe inevitabile rumore lessicale e priverebbe le voci della necessaria revisione.
 
 Al contrario, in piena coerenza con lo scenario di progetto e con il diagramma BPMN, il modello di acquisizione è **collaborativo, distribuito e presidiato da esperti (*expert-driven*)**:
-1. **Proposta dal basso (Community & Utenti esperti)**: I professionisti della governance (giuristi, sviluppatori, eticisti) individuano le lacune terminologiche sul campo e propongono l'inserimento o la modifica dei termini tramite moduli strutturati (*GitHub Issue Forms*), corredando la proposta di definizioni bilingui, motivazione e riferimenti puntuali a norme o standard;
-2. **Fact-Checking e Revisione Specialistica (Comitato Editoriale)**: Il comitato interdisciplinare (appuntato su votazione comune, composto da un Chief Editor che si dedica alle attività di amministrazione, e tre esperti negli ambiti richiesti) esamina la veridicità e pertinenza delle fonti citate, eseguendo un'attività critica di *fact-checking* e mediazione concettuale prima di approvare l'ingresso di un lemma nel vocabolario controllato, in linea anche con criteri di AI Fluency pubblicizzati dai grandi provider AI come Anthropic nei propri corsi.
+I professionisti della governance (giuristi, sviluppatori, eticisti) individuano le lacune terminologiche sul campo e propongono l'inserimento o la modifica dei termini tramite moduli strutturati (*GitHub Issue Forms*), corredando la proposta di definizioni bilingui, motivazione e riferimenti puntuali a norme o standard;
+Il comitato interdisciplinare (appuntato su votazione comune, composto da un Chief Editor che si dedica alle attività di amministrazione, e tre esperti negli ambiti richiesti) esamina la veridicità e pertinenza delle fonti citate, eseguendo un'attività critica di *fact-checking* e mediazione concettuale prima di approvare l'ingresso di un lemma nel vocabolario controllato, in linea anche con criteri di AI Fluency pubblicizzati dai grandi provider AI come Anthropic nei propri corsi.
 
 L'acquisizione delle fonti viene così divisa:
 - **Fonti disponibili ad accesso libero**: Il corpus normativo di partenza è liberamente consultabile con costo di licenza nullo. Solo per alcune norme ISO/IEC sussistono vincoli di acquisto della documentazione integrale, parzialmente compensati dalla disponibilità delle clausole definitorie pubbliche (ISO Online Browsing Platform);
@@ -113,15 +125,15 @@ La modellazione formale è stata realizzata tramite l'editor aperto [bpmn.io](ht
 ![Flusso di Gestione Documentale del Tesauro in Notazione BPMN 2.0](./diagram.svg)
 
 Il diagramma BPMN 2.0 formalizza le seguenti fasi sequenziali e di retroazione:
-- **Evento di Inizio e Proposta**: L'utente della comunità identifica un'esigenza terminologica e compila il modulo strutturato *GitHub Issue Form*;
-- **Triage della Issue**: Il Chief Editor verifica che il modulo sia completo e che siano citate fonti normative o standard verificabili; in caso contrario, la richiesta viene respinta con notifica all'utente;
-- **Peer-Review Interdisciplinare**: Vengono attivati in parallelo i tre rami specialistici di revisione (giuridico-normativo, tecnico-operativo, concettuale-filosofico);
-- **Gateway Decisionale Interdisciplinare**:
-  - *Modifiche necessarie*: Viene inviata una notifica all'autore tramite GitHub Issue/PR per richiedere integrazioni;
-  - *Respinto*: Viene redatta la motivazione ufficiale del diniego e verbalizzata nel registro `DECISIONS.md`;
-  - *Approvato*: Viene generata la Pull Request con il file Markdown/YAML del termine;
-- **Pipeline di Validazione CI/CD**: I test automatizzati verificano la conformità sintattica e semantica dello schema;
-- **Merge e Pubblicazione Continua**: Il *Chief Editor* unisce le modifiche su `main`, il registro EDR viene aggiornato e GitHub Actions compila gli artefatti SKOS/JSON rilasciando la nuova versione su GitHub Pages.
+1. **Evento di Inizio e Proposta**: L'utente della comunità identifica un'esigenza terminologica e compila il modulo strutturato *GitHub Issue Form*;
+2. **Triage della Issue**: Il Chief Editor verifica che il modulo sia completo e che siano citate fonti normative o standard verificabili; in caso contrario, la richiesta viene respinta con notifica all'utente;
+3. **Peer-Review Interdisciplinare**: Vengono attivati in parallelo i tre rami specialistici di revisione (giuridico-normativo, tecnico-operativo, concettuale-filosofico);
+4. **Gateway Decisionale Interdisciplinare**:
+  a. *Modifiche necessarie*: Viene inviata una notifica all'autore tramite GitHub Issue/PR per richiedere integrazioni;
+  b. *Respinto*: Viene redatta la motivazione ufficiale del diniego e verbalizzata nel registro `DECISIONS.md`;
+  c. *Approvato*: Viene generata la Pull Request con il file Markdown/YAML del termine;
+5. **Pipeline di Validazione CI/CD**: I test automatizzati verificano la conformità sintattica e semantica dello schema;
+6. **Merge e Pubblicazione Continua**: Il *Chief Editor* unisce le modifiche su `main`, il registro EDR viene aggiornato e GitHub Actions compila gli artefatti SKOS/JSON rilasciando la nuova versione su GitHub Pages.
 
 Il flusso garantisce che nessuna modifica possa confluire nel ramo principale (`main`) senza aver superato sia la **validazione semantica interdisciplinare** (almeno due pareri favorevoli di esperti di aree diverse).
 
@@ -133,15 +145,11 @@ Tuttavia l'impiego di Markdown e YAML richiede un parser per la trasformazione n
 #### 2. Workflow di Pubblicazione Automatica
 Il workflow fa perno sulla generazione di siti statici di GitHub Pages:
 
-Ad ogni operazione di `push` o `merge` sul ramo `main`, una macchina virtuale isolata esegue:
-  1. `validate_terms.py`: script Python che carica i file `.md`, isola il frontmatter YAML e ne valida la correttezza;
-  2. `build_thesaurus.py`: script Python che aggrega i termini, genera l'indice strutturato (`dist/thesaurus.json`) per la consultazione e compila il portale web statico HTML/CSS/JS (`dist/index.html`);
-  3. Deploy automatico su **GitHub Pages**, garantendo la visibilità immediata e pubblica della nuova versione entro pochi secondi dal merge.
+Ad ogni operazione di `push` o `merge` sul ramo `main`, una macchina virtuale isolata esegue `validate_terms.py`: script Python che carica i file `.md`, isola il frontmatter YAML e ne valida la correttezza e `build_thesaurus.py`, uno script Python che aggrega i termini, genera l'indice strutturato (`dist/thesaurus.json`) per la consultazione e compila il portale web statico HTML/CSS/JS (`dist/index.html`). A questo punto avviene il deploy automatico su **GitHub Pages**, garantendo la visibilità immediata e pubblica della nuova versione entro pochi secondi dal merge.
 
 #### 3. Meccanismo di Raccolta Feedback 
-La raccolta dei contributi esterni è mediata da **GitHub Issue Forms** con campi vincolati codificati in formato dichiarativo YAML (`.github/ISSUE_TEMPLATE/`):
-- Il modulo per nuovi termini (`01_proposta_nuovo_termine.yml`) obbliga il proponente a specificare i termini preferiti in EN e IT, le prospettive di riferimento, una proposta di definizione bilingue, una **motivazione analitica** che spieghi la lacuna colmata e la **citazione obbligatoria delle fonti normative o standard a supporto** (con articolo o clausola).
-- Se l'utente non compila i campi obbligatori o non indica fonti verificabili, il sistema impedisce l'invio o l'amministratore archivia la richiesta come non ammissibile durante il triage, tutelando la qualità del tesauro.
+La raccolta dei contributi esterni è mediata da **GitHub Issue Forms** con campi vincolati codificati in formato dichiarativo YAML (`.github/ISSUE_TEMPLATE/`). Vi sono due form, ma il primo è il più importante, perchè si occupa delle prime pubblicaione: Il modulo per nuovi termini (`01_proposta_nuovo_termine.yml`) obbliga il proponente a specificare i termini preferiti in EN e IT, le prospettive di riferimento, una proposta di definizione bilingue, una **motivazione analitica** che spieghi la lacuna colmata e la **citazione obbligatoria delle fonti normative o standard a supporto** (con articolo o clausola). Se l'utente non compila i campi obbligatori o non indica fonti verificabili, il sistema impedisce l'invio o l'amministratore archivia la richiesta come non ammissibile durante il triage, tutelando la qualità del tesauro. 
+Il secondo modulo segue lo stesso paradigma ma per le modifiche.
 
 #### 4. Flusso Editoriale e Giustificazioni Pubbliche
 Il governo editoriale è affidato a un **Comitato Editoriale Interdisciplinare**:
@@ -150,9 +158,9 @@ Il governo editoriale è affidato a un **Comitato Editoriale Interdisciplinare**
   - *Legal Reviewer*: valuta l'aderenza alle legislazioni europee, internazionali o locali;
   - *Technical Reviewer*: valuta la rispondenza alle clausole ISO/IEC e NIST;
   - *Philosophical Reviewer*: valuta la coerenza dei presupposti etico-concettuali e dei termini emergenti.
-- **Pubblicazione delle Giustificazioni (Editorial Decision Records)**: Ogni delibera viene motivata pubblicamente mediante due canali integrati:
-  1. Un commento formale firmato dai revisori a conclusione dell'Issue/PR pubblica;
-  2. L'inserimento immutabile nel registro `DECISIONS.md`, consultabile pubblicamente online e linkato direttamente dal footer del portale web.
+
+**Pubblicazione delle Giustificazioni (Editorial Decision Records)**: 
+Ogni delibera viene motivata pubblicamente mediante due canali integrati: un commento formale firmato dai revisori a conclusione dell'Issue/PR pubblica e l'inserimento immutabile nel registro `DECISIONS.md` rispetto alle decisioni prese, consultabile pubblicamente online e linkato direttamente dal footer del portale web.
 
 #### 5. Versionamento e Storico (Consegna 5)
 Per documentare e rendere tracciabili tutte le modifiche senza creare confusione tra nomenclature concorrenti, il progetto adotta un'**unica strategia di versionamento formale**: il **Semantic Versioning 2.0.0 (SemVer)** nella forma canonica `MAJOR.MINOR.PATCH` (es. `1.0.0`):
@@ -216,9 +224,15 @@ Il confronto analitico tra la gestione documentale tradizionale e l'ecosistema i
 
 ### Limiti emersi
 Nonostante i ragguardevoli risultati raggiunti, l'analisi critica ha evidenziato alcuni limiti:
-1. **Complessità dell'armonizzazione tra giurisdizioni diverse**: Mentre l'AI Act ha forza di regolamento vincolante nello Spazio Economico Europeo, altri quadri (come il NIST statunitense o la Convenzione del Consiglio d'Europa) adottano criteri di classificazione non del tutto sovrapponibili, richiedendo frequenti compromessi redazionali nelle note d'ambito.
-2. **Barriera iniziale per contributori non tecnici**: Sebbene gli Issue Forms guidino l'utente attraverso campi web semplici, l'eventuale contribuzione diretta tramite Git e creazione di Pull Request richiede una familiarità con il controllo di versione che non tutti i giuristi o filosofi possiedono. Per ovviare a questo limite, il flusso prevede che l'amministratore possa tradurre in Pull Request le proposte validate inviate tramite form web.
-3. **Mantenimento continuativo del comitato editoriale**: L'esigenza di una peer-review multidisciplinare accurata comporta una dipendenza dalla disponibilità temporale di esperti qualificati, fattore che in assenza di adeguati incentivi istituzionali o popolarità della piattaforma può rallentare l'evasione delle richieste nei periodi di picco normativo.
+
+<u>La complessità dell'armonizzazione tra giurisdizioni diverse</u>: 
+Mentre l'AI Act ha forza di regolamento vincolante nello Spazio Economico Europeo, altri quadri (come il NIST statunitense o la Convenzione del Consiglio d'Europa) adottano criteri di classificazione non del tutto sovrapponibili, richiedendo frequenti compromessi redazionali nelle note d'ambito.
+
+<u>La barriera iniziale per contributori non tecnici</u>: 
+Sebbene gli Issue Forms guidino l'utente attraverso campi web semplici, l'eventuale contribuzione diretta tramite Git e creazione di Pull Request richiede una familiarità con il controllo di versione che non tutti i giuristi o filosofi possiedono. Per ovviare a questo limite, il flusso prevede che l'amministratore possa tradurre in Pull Request le proposte validate inviate tramite form web.
+
+<u>Il mantenimento continuativo del comitato editoriale</u>: 
+L'esigenza di una peer-review multidisciplinare accurata comporta una dipendenza dalla disponibilità temporale di esperti qualificati, fattore che in assenza di adeguati incentivi istituzionali o popolarità della piattaforma può rallentare l'evasione delle richieste nei periodi di picco normativo.
 
 ---
 
@@ -229,10 +243,10 @@ Come da consegna, è stato programmato un semplice file web statico per comunica
 ### Wireframe Concettuale dell'Interfaccia di Consultazione
 
 L'interfaccia implementata (disponibile nel file `dist/index.html` e testabile direttamente nel browser) offre:
-1. **Ricerca istantanea bilingue**: La digitazione nel campo di ricerca filtra istantaneamente i termini per corrispondenza in etichette preferite, varianti sinonimiche o testo delle definizioni sia in inglese che in italiano.
-2. **Switching dinamico della lingua**: Il toggle IT/EN aggiorna la priorità visiva di tutte le schede, presentando in primo piano la definizione nella lingua selezionata e la traduzione a fronte come sottotitolo.
-3. **Navigazione relazionale ipertestuale**: Cliccando sui badge delle relazioni *Broader*, *Narrower* o *Related*, l'interfaccia effettua uno scorrimento fluido (*smooth scroll*) con evidenziazione visiva temporanea del termine correlato.
-4. **Accesso diretto alla contribuzione**: Ogni scheda presenta il link diretto pre-compilato verso il modulo di modifica su GitHub Issue.
+Filtraggio istantaneo dei termini per corrispondenza in etichette preferite, varianti sinonimiche o testo delle definizioni sia in inglese che in italiano.
+Il toggle IT/EN aggiorna la priorità visiva di tutte le schede, presentando in primo piano la definizione nella lingua selezionata e la traduzione a fronte come sottotitolo.
+Cliccando sui badge delle relazioni *Broader*, *Narrower* o *Related*, l'interfaccia effettua uno scorrimento fluido (*smooth scroll*) con evidenziazione visiva temporanea del termine correlato.
+Ogni scheda presenta il link diretto pre-compilato verso il modulo di modifica su GitHub Issue.
 
 ---
 
