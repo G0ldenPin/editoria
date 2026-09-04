@@ -437,5 +437,53 @@
     "version": "1.0.0",
     "lastUpdated": "2026-09-01",
     "content_md": "# Human Oversight / Supervisione umana\n\n### Inquadramento Concettuale\nLa **Supervisione umana** rappresenta il principio cardine dell'approccio antropocentrico (*human-centric*) promosso dalle istituzioni europee ed internazionali. Si contrappone a qualsiasi forma di automazione de-responsabilizzante e garantisce la primazia dell'essere umano sulle decisioni algoritmiche.\n\n### Declinazione Interdisciplinare\n1. **Diritto**: Requisito cogente di liceità per i sistemi ad alto rischio (Art. 14 AI Act); presupposto per l'imputabilità della responsabilità giuridica.\n2. **Tecnologia**: Implementazione di interfacce persona-macchina (HCI), pulsanti di arresto d'emergenza (*stop button*), e meccanismi che prevengano il fenomeno dell'*automation bias* (la tendenza degli operatori a fidarsi ciecamente dell'output del sistema).\n3. **Filosofia ed Etica**: Salvaguardia dell'autonomia e dell'agenzia morale umana di fronte a sistemi predittivi e decisionali."
+  },
+  {
+    "id": "test1",
+    "uri": "https://w3id.org/aigov-thesaurus/concept/test1",
+    "prefLabel": {
+      "en": "test1",
+      "it": "test1"
+    },
+    "altLabel": {
+      "en": [
+        "bla",
+        "bla"
+      ],
+      "it": [
+        "bla",
+        "bla"
+      ]
+    },
+    "perspective": [
+      "normativa-giuridica"
+    ],
+    "definition": {
+      "en": "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla",
+      "it": "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
+    },
+    "scopeNote": {
+      "en": "Approved entry based on proposal #1. Motivated for AI governance alignment.",
+      "it": "Voce approvata sulla base della proposta #1. Allineamento per la governance dell'IA."
+    },
+    "broader": [
+      "ai-system"
+    ],
+    "narrower": [],
+    "related": [
+      "ai-risk-management"
+    ],
+    "sources": [
+      {
+        "type": "normativa",
+        "name": "bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla",
+        "reference": "Consultazione documentale ufficiale",
+        "url": "https://eur-lex.europa.eu"
+      }
+    ],
+    "status": "approved",
+    "version": "1.0.0",
+    "lastUpdated": "2026-09-04",
+    "content_md": "# test1 / test1\n\n### Inquadramento Concettuale\nIl termine **test1** (test1) è stato introdotto nel vocabolario controllato su proposta approvata dal comitato interdisciplinare.\n\n### Motivazione della Decisione Editoriale\nbla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla"
   }
 ]
