@@ -10,11 +10,11 @@ Progetto per la progettazione e documentazione di un **workflow editoriale digit
 
 - **`relazione_esame.md`**: Relazione accademica completa redatta secondo il modello di relazione fornito su Ariel.
 - **`diagram.bpmn`**: Modello formale del processo editoriale in formato standard XML **BPMN 2.0 (ISO/IEC 19510:2013)** generato tramite [bpmn.io](https://bpmn.io).
-- **`diagram.svg`**: Resa grafica vettoriale ad alta definizione del diagramma BPMN 2.0 integrata direttamente nella relazione.
+- **`diagram.svg`**: grafica vettoriale del diagramma BPMN 2.0.
 - **`DECISIONS.md`**: Registro pubblico delle decisioni editoriali (*Editorial Decision Records - EDR*), con la verbalizzazione delle delibere di approvazione, revisione o rigetto delle proposte terminologiche.
 - **`data/terms/*.md`**: Termini sorgente rappresentativi in formato **Markdown con frontmatter YAML conforme a W3C SKOS**.
 - **`scripts/`**:
-  - `validate_terms.py`: Script Python riproducibile per verificare la correttezza formale, la simmetria bilingue e l'integrità referenziale delle relazioni semantiche.
+  - `validate_terms.py`: Script Python per verificare la correttezza formale, la simmetria bilingue e l'integrità referenziale delle relazioni semantiche.
   - `build_thesaurus.py`: Script Python per compilare i dati sorgente e generare i formati di consultazione (dataset JSON e portale statico HTML).
 - **`dist/`**: Artefatti compilati pronti per la pubblicazione su GitHub Pages:
   - `index.html`: Portale web statico, responsive e bilingue, con motore di ricerca e filtri sfaccettati.
@@ -44,6 +44,9 @@ python scripts/build_thesaurus.py
 start dist/index.html
 ```
 
+Per accedere al sito basta semplicemente cliccare "GitHub Pages" sotto a deployments. Non sono stati svolti test sull'effettiva pubblicazione di termini attraverso PR o ISSUE, il contenuto del mockup infatti è costituito solo da esempi rappresentativi.
+
+![GitHub Pages](./pages_expl.png)
 ---
 
 ### Consegne dell'Esercizio d'Esame
