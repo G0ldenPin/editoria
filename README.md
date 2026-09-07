@@ -12,8 +12,8 @@ Progetto per la progettazione e documentazione di un **workflow editoriale digit
 - **`diagram.bpmn`**: Modello formale del processo editoriale in formato standard XML **BPMN 2.0 (ISO/IEC 19510:2013)** generato tramite [bpmn.io](https://bpmn.io).
 - **`img/`**: Cartella contenente le risorse grafiche e gli asset visivi del progetto:
   - `diagram.svg`: Grafica vettoriale del diagramma BPMN 2.0 ad alta risoluzione.
-  - `LogoHeader.svg`: Sigillo/logo ufficiale dell'Università degli Studi di Milano integrato nella relazione.
-  - `nuovo_termine.png`, `modifica_termine.png`, `test1.png`, `pages_expl.png`: Screenshot dimostrativi dei test su GitHub Issue Forms e GitHub Pages.
+  - `LogoHeader.jpg`: Sigillo/logo ufficiale dell'Università degli Studi di Milano integrato nella relazione.
+  - `nuovo_termine.png`, `modifica_termine.png`, `pages_expl.png`: Screenshot dimostrativi dei moduli GitHub Issue Forms e dell'interfaccia su GitHub Pages.
 - **`DECISIONS.md`**: Registro pubblico delle decisioni editoriali (*Editorial Decision Records - EDR*), con la verbalizzazione delle delibere di approvazione, revisione o rigetto delle proposte terminologiche.
 - **`data/terms/*.md`**: Termini sorgente rappresentativi in formato **Markdown con frontmatter YAML conforme a W3C SKOS**.
 - **`scripts/`**:
@@ -57,7 +57,7 @@ Sono stati testati i template delle ISSUE su GitHub e, come da foto allegate, fu
 
 ![Aggiunta Termine](./img/nuovo_termine.png)
 ![Modifica Termine](./img/modifica_termine.png)
-![Test 1](./img/test1.png)
+
 ---
 
 ### Consegne dell'Esercizio d'Esame

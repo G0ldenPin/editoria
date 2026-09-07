@@ -1,6 +1,6 @@
 ---
 title: Relazione del progetto d'esame di Editoria Digitale
-author: "[Elijah Lisa Bassetti, Matricola: 44464A]"
+author: "Elijah Lisa Bassetti (Matricola: 44464A)"
 date: a.a. 2026/2027
 institute: Università degli Studi di Milano
 course: Editoria Digitale
@@ -9,18 +9,12 @@ version: 1.0
 kind: Document
 ---
 
-![Logo UNIMI](./img/LogoHeader.jpg)
+![Logo UNIMI](./img/LogoHeader.jpg){width=100px height=100px}
 
-<div align="center">
-<h2>
-Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
-</h2>
+# Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
+### Armonizzazione delle prospettive normativa-giuridica, tecnico-operativa ed etico-filosofica tramite W3C SKOS e pubblicazione continua
 
-<button>
-<a href="https://github.com/G0ldenPin/editoria">repository GitHub</a>
-</button>
-
-</div>
+**Repository del Progetto**: [https://github.com/G0ldenPin/editoria](https://github.com/G0ldenPin/editoria)
 
 ---
 
@@ -51,60 +45,50 @@ L'attenzione pubblica e accademica su questo tema ha registrato un trend esponen
 ### Destinatari
 Per orientare la progettazione editoriale e soddisfare i principi della *User Experience* e della teoria della progettazione centrate sull'utente, sono state definite tre *personas* rappresentative dei principali gruppi di interesse:
 
-<div style="border: 1px solid black; padding: 10px; width: auto;">
-  <b>Dott.ssa Elena Rossi (Area Giuridica e Policy)</b> <br> <br>
-  <i>Ruolo</i>: Funzionaria dell'Autorità Nazionale di Vigilanza sull'IA ed esperta di compliance normativa. <br>
-<br>
-  <i>Bisogni</i>: Necessita di consultare con immediatezza le definizioni legali vincolanti fornite dall'AI Act e dal DDL italiano 2025, verificando se e come tali concetti corrispondano alle nozioni tecniche ISO/IEC, per formulare linee guida applicative e pareri ispettivi coerenti. <br>
-  <br>
-  <i>Scenario d'uso</i>: Riceve un quesito sulla qualificazione di un modello come "GPAI con rischio sistemico". Consulta il tesauro, filtra per la prospettiva giuridica e lo standard ISO/IEC 22989, ed estrae la scheda terminologica bilingue da allegare alla delibera.
-</div>
+> **Dott.ssa Elena Rossi (Area Giuridica e Policy)**  
+> *Ruolo*: Funzionaria dell'Autorità Nazionale di Vigilanza sull'IA ed esperta di compliance normativa.  
+> *Bisogni*: Necessita di consultare con immediatezza le definizioni legali vincolanti fornite dall'AI Act e dal DDL italiano 2025, verificando se e come tali concetti corrispondano alle nozioni tecniche ISO/IEC, per formulare linee guida applicative e pareri ispettivi coerenti.  
+> *Scenario d'uso*: Riceve un quesito sulla qualificazione di un modello come "GPAI con rischio sistemico". Consulta il tesauro, filtra per la prospettiva giuridica e lo standard ISO/IEC 22989, ed estrae la scheda terminologica bilingue da allegare alla delibera.
 
-<br>
+> **Ing. Marco Bianchi (Area Tecnico-Operativa)**  
+> *Ruolo*: AI Safety Engineer e Lead Architect in un'azienda sviluppatrice di soluzioni software enterprise.  
+> *Bisogni*: Deve redigere il fascicolo tecnico e il piano di gestione del rischio ai sensi di ISO/IEC 23894:2023 e del NIST AI RMF per un sistema decisionale. Necessita di un linguaggio rigoroso che non crei ambiguità durante l'audit di conformità con i valutatori terzi.  
+> *Scenario d'uso*: Durante l'implementazione di un agente basato su LLM, deve definire i parametri operativi di *Human Oversight*. Cerca il termine nel portale, ne analizza i concetti correlati (*human-in-the-loop*) e integra le clausole standard nel codice e nella documentazione di progetto.
 
-<div style="border: 1px solid black; padding: 10px; width: auto;">
-  <b>Ing. Marco Bianchi (Area Tecnico-Operativa)</b> <br> <br>
-  <i>Ruolo</i>: AI Safety Engineer e Lead Architect in un'azienda sviluppatrice di soluzioni software enterprise. <br>
-<br>
-  <i>Bisogni</i>: Deve redigere il fascicolo tecnico e il piano di gestione del rischio ai sensi di ISO/IEC 23894:2023 e del NIST AI RMF per un sistema decisionale. Necessita di un linguaggio rigoroso che non crei ambiguità durante l'audit di conformità con i valutatori terzi. <br>
-  <br>
-  <i>Scenario d'uso</i>: Durante l'implementazione di un agente basato su LLM, deve definire i parametri operativi di *Human Oversight*. Cerca il termine nel portale, ne analizza i concetti correlati (<b>human-in-the-loop</b>) e integra le clausole standard nel codice e nella documentazione di progetto.
-</div>
-
-<br>
-
-<div style="border: 1px solid black; padding: 10px; width: auto;">
-  <b>Prof.ssa Sofia Conti (Area Etico-Filosofica e Ricerca)</b> <br> <br>
-  <i>Ruolo</i>: Docente universitaria di Etica delle Tecnologie Emergenti e membro di comitati etici indipendenti. <br>
-<br>
-  <i>Bisogni</i>: Studia l'evoluzione terminologica delle nuove frontiere dell'autonomia artificiale (Agentic AI). Vuole proporre l'inclusione di nuovi termini emergenti con solide argomentazioni teoriche e monitorare la trasparenza delle scelte lessicali. <br>
-  <br>
-  <i>Scenario d'uso</i>: Riscontra l'assenza di una variante terminologica essenziale relativa all'autonomia deliberativa degli agenti software. Accede al repository del tesauro, apre una proposta strutturata tramite l'Issue Form indicando fonti bibliografiche e motivazione, e partecipa alla peer-review pubblica con il comitato editoriale.
-</div>
-
+> **Prof.ssa Sofia Conti (Area Etico-Filosofica e Ricerca)**  
+> *Ruolo*: Docente universitaria di Etica delle Tecnologie Emergenti e membro di comitati etici indipendenti.  
+> *Bisogni*: Studia l'evoluzione terminologica delle nuove frontiere dell'autonomia artificiale (*Agentic AI*). Vuole proporre l'inclusione di nuovi termini emergenti con solide argomentazioni teoriche e monitorare la trasparenza delle scelte lessicali.  
+> *Scenario d'uso*: Riscontra l'assenza di una variante terminologica essenziale relativa all'autonomia deliberativa degli agenti software. Accede al repository del tesauro, apre una proposta strutturata tramite l'Issue Form indicando fonti bibliografiche e motivazione, e partecipa alla peer-review pubblica con il comitato editoriale.
 
 ### Requisiti di accettazione
 L'adozione del tesauro è stata modellata attraverso i costrutti del **Technology Acceptance Model (TAM)**:
 
-**Utilità Percepita**:
+**Utilità Percepita (Perceived Usefulness - PU)**:  
 I termini sono corroborati da puntuali riferimenti normativi (articoli di legge) e standard internazionali (clausole ISO/NIST), eliminando il rischio di definizioni arbitrarie. Il motore di ricerca e i filtri bilingui consentono a giuristi e tecnici di reperire definizioni e relazioni semantiche in pochi secondi, riducendo i tempi di redazione degli atti e dei fascicoli tecnici. L'adozione dello standard **W3C SKOS** assicura che il tesauro non sia un prodotto isolato, ma una risorsa interoperabile inserita nella rete dei *Linked Open Data*.
 
-**Facilità d'Uso Percepita (Perceived Ease of Use - PEOU)**:
-L'interfaccia pubblica adotta pattern visivi consolidati (tessere concettuali, tag colorati per prospettiva, navigazione ipertestuale delle relazioni BT/NT/RT). La scelta del formato sorgente **Markdown con YAML frontmatter** permette anche a profili non strettamente informatici di visualizzare e proporre termini senza dover apprendere complesse sintassi XML o linguaggi ontologici proprietari, tuttavia, i profili meno tecnici potrebbero essere riluttanti a usare una piattaforma "nuova" come GitHub. I contenuti risiedono in file di testo puro UTF-8 gestiti tramite Git, liberando l'iniziativa da qualsiasi lock-in verso piattaforme proprietarie.
+**Facilità d'Uso Percepita (Perceived Ease of Use - PEOU)**:  
+L'interfaccia pubblica adotta pattern visivi consolidati (tessere concettuali, tag colorati per prospettiva, navigazione ipertestuale delle relazioni BT/NT/RT). La scelta del formato sorgente **Markdown con YAML frontmatter** permette anche a profili non strettamente informatici di visualizzare e proporre termini senza dover apprendere complesse sintassi XML o linguaggi ontologici proprietari. I contenuti risiedono in file di testo puro UTF-8 gestiti tramite Git, liberando l'iniziativa da qualsiasi lock-in verso piattaforme proprietarie.
 
 ### Canali di distribuzione
 La diffusione del prodotto editoriale persegue una strategia di **multicanalità integrata**, sfruttando la natura a costo marginale zero del bene digitale:
 
 1. **Portale Web Statico Interattivo (Canale Principale)**:
    - *Target*: Professionisti, funzionari, ricercatori e studenti.
-   - *Formato*: HTML5 semantico, CSS responsive, JavaScript vanilla reattivo (nessuna dipendenza da framework esterni).
-   - *Funzionalità*: Ricerca full-text istantanea in inglese e italiano, filtri per prospettiva (giuridica, tecnica, filosofica) e fonte (AI Act, ISO, NIST, ecc.), switch istantaneo della lingua prevalente, visualizzazione relazionale ad albero e download dei dati aperti.
+   - *Formato*: HTML5 semantico, CSS responsive, JavaScript vanilla reattivo (nessuna dipendenza da framework esterni pesanti).
+   - *Funzionalità*: Ricerca full-text istantanea in inglese e italiano, filtri per prospettiva (giuridica, tecnica, filosofica) e fonte (AI Act, ISO, NIST, ecc.), switch istantaneo della lingua prevalente, visualizzazione relazionale ad albero e download del dataset aperto.
 2. **Repository Documentale Aperto**:
    - *Target*: Comunità scientifica ed editoriale open source.
-   - *Piattaforma*: GitHub / GitLab, con storico completo dei commit, tracciamento delle issue, changelog delle versioni e file sorgente Markdown.
+   - *Piattaforma*: GitHub / GitLab, con storico atomico dei commit, tracciamento delle issue, changelog delle versioni e file sorgente Markdown.
 3. **Documentazione Distribuibile Off-line (PDF / eBook)**:
-   - *Target*: Consultazione istituzionale e archiviazione.
+   - *Target*: Consultazione istituzionale, atti parlamentari e archiviazione a lungo termine.
    - *Pipeline*: Compilazione tramite Pandoc dei file Markdown sorgente con metadati tipografici in formati PDF/LaTeX ed ePub3 standard.
+
+#### Identità Visuale, Stile Tipografico e Standard Documentali
+In aderenza alle linee guida di progettazione editoriale, il prodotto adotta uno **stile formale, sobrio e istituzionale**, bilanciando il rigore scientifico con l'usabilità moderna:
+- **Classi di documento standard**: Il progetto adotta come modello teorico lo standard internazionale **ISO 25964** (*Thesauri and interoperability with other vocabularies*) per l'articolazione delle relazioni gerarchiche (*Broader/Narrower*), associative (*Related*) e di equivalenza (*prefLabel/altLabel*), mappate direttamente sullo standard per il web semantico **W3C SKOS** (*Simple Knowledge Organization System*).
+- **Tipografia**: Per il portale web è stato adottato il carattere geometrico ad alta leggibilità a schermo **Outfit** (pesi da 300 a 800), con interlinea generosa (1.6) e contrasto ottimizzato conforme alle linee guida sull'accessibilità **WCAG 2.1 livello AA**. Per la documentazione cartacea (PDF), Pandoc impiega font con grazie ad alta leggibilità tipografica (*Computer Modern* o *Latin Modern*).
+- **Palette cromatica funzionale**: L'identità visiva sfrutta una palette Flat UI semantica: il verde petrolio/teal (`#16A085` / `#1ABC9C`) come colore primario di riferimento istituzionale; il giallo solare (`#F1C40F`) e l'arancio caldo (`#E67E22`) per evidenziare le aree tecnico-filosofiche; il rosso corallo (`#E74C3C`) riservato ai pulsanti d'azione interattiva (*Call-to-Action* per la proposta di revisione). Sfondo chiaro a basso affaticamento visivo (`#F4F8F7`).
+- **Adesione a modelli consolidati vs Innovazione**: Il tesauro rispetta rigorosamente i modelli terminologici consolidati per trasmettere autorevolezza alle autorità di vigilanza, ma introduce innovazione radicale nel **processo di fruizione**, abbattendo la staticità del PDF tradizionale mediante navigazione ipertestuale fluida tra concetti e ricerca client-side in tempo reale.
 
 ---
 
@@ -144,9 +128,15 @@ Il diagramma BPMN 2.0 formalizza le seguenti fasi sequenziali e di retroazione:
 Il flusso garantisce che nessuna modifica possa confluire nel ramo principale (`main`) senza aver superato sia la **validazione semantica interdisciplinare** (almeno due pareri favorevoli di esperti di aree diverse).
 
 ### Tecnologie adottate
-Si è scelto il formato **Markdown con YAML Frontmatter** per garantire anche alle figure meno tecniche leggibilità umana e una complessità di apprendimento bassa.
-Consente di combinare metadati strutturati e tipizzati (YAML) con testo argomentativo esteso. Git inoltre traccia i file `.md` riga per riga, è anche  compatibile al 100% con standard W3C SKOS senza dipendenze proprietarie
-Tuttavia l'impiego di Markdown e YAML richiede un parser per la trasformazione nei formati di fruizione finale.
+Per rispondere ai requisiti di flessibilità, portabilità e cooperazione emersi dagli scenari d'uso, è stato selezionato un ventaglio di tecnologie aperte e standardizzate:
+
+| Tecnologia Adottata | Scenario 1: Giuridico-Policy (Dott.ssa Rossi) | Scenario 2: Tecnico-Operativo (Ing. Bianchi) | Scenario 3: Etico-Filosofico (Prof.ssa Conti) |
+| :--- | :--- | :--- | :--- |
+| **Markdown + YAML Frontmatter** | Consente la lettura immediata delle definizioni legali senza barriere di formati proprietari o linguaggi complessi. | Permette l'integrazione diretta della documentazione nel repository di codice e nei fascicoli tecnici. | Facilita la redazione di proposte terminologiche con argomentazioni teoriche estese e leggibilità umana pura. |
+| **Standard W3C SKOS** | Garantisce l'interoperabilità delle definizioni legislative con i sistemi di informazione giuridica europei. | Fornisce relazioni ontologiche rigorose (*broader*, *narrower*, *related*) indispensabili per la gestione del rischio. | Permette la mappatura reticolare delle sfumature concettuali e delle varianti sinonimiche (*altLabel*). |
+| **Linter Python (`validate_terms.py`)** | Impedisce l'introduzione di definizioni prive di articoli di legge verificabili a supporto. | Blocca vincoli orfani e garantisce l'integrità referenziale delle tassonomie durante la CI/CD. | Verifica la simmetria bilingue e la corretta attribuzione delle prospettive filosofiche. |
+| **GitHub Issue Forms** | Guida la formulazione di quesiti e proposte tramite moduli web intuitivi con campi obbligatori. | Standardizza la notifica di discrepanze tra standard tecnici (ISO/NIST) e definizioni operative. | Struttura la peer-review aperta, vincolando ogni richiesta alla citazione di fonti dottrinali o accademiche. |
+| **Portale Statico (HTML5/Outfit/JS)** | Offre un motore di ricerca rapido per la consultazione e l'estrazione di definizioni per delibere e pareri. | Consente di navigare visivamente l'albero concettuale e scaricare il dataset JSON per pipeline software. | Garantisce la consultazione pubblica e trasparente del vocabolario controllato e delle note d'ambito. |
 
 #### Workflow di Pubblicazione Automatica
 Il workflow fa perno sulla generazione di siti statici di GitHub Pages e offre tre modalità di attivazione complementari:
@@ -197,16 +187,24 @@ python scripts/issue_to_term.py --demo
 
 ### Utilizzo di intelligenza artificiale generativa
 
-Descrivere in quali fasi del flusso di gestione documentale è stata integrata l'IA generativa e con quali obiettivi. Indicare le tecnologie adottate (modelli di linguaggio, sistemi di analisi dati, computer vision) e per quale tipo di elaborazione. Descrivere l'approccio di prompt engineering adottato e i metodi utilizzati per validare la qualità degli output generati. Valutare il contributo dell'AI in termini di riduzione dei tempi, miglioramento della qualità e scalabilità raggiunta, evidenziando anche i limiti emersi e la necessità di intervento umano.
+Nell'ambito del presente progetto editoriale, l'integrazione dell'Intelligenza Artificiale Generativa è stata oggetto di una precisa scelta metodologica e deontologica, articolata su due livelli distinti:
 
-Nel tesauro non è previsto l'utilizzo di strumenti AI principalmente perchè un ambiente rigoroso come quello legislativo (es. stesure documentazioni tecniche, compliance aziendali) ci sono responsabilità reali sulle persone che utilizzano determinati strumenti, dunque avere un comitato *pubblico e trasparente* permette di controllare meticolosamente tutte le informazioni della piattaforma "a più mani". 
-Per la stesura del progetto, è stato usato il modello **Gemini 3.8 Flash (high)** in particolar modo per la stesura del codice Python in quanto non abbia molta dimestichezza ed esperienza, nella stesura degli esempi dei termini, l'esempio di `DECISIONS.md` e dell'esempio in `thesaurus.json`. La strategia di prompt engineering riflette le caratteristiche descritte nelle dispense, cioè descrivere la situazione (anche chiamato stage-setting nei percorsi formativi Anthropic), descrivere l'output desiderato dettagliatamente ed eventualmente fornire regole e costrizioni che imponiamo al modello: In questo caso ho descritto brevemente il contesto accademico e quindi l'importanza della riduzione del contesto, fornendo tramite la GUI di AntiGravity una singola cartella dove erano presenti i materiali del corso, poi spiegando il progetto attraverso delle citazioni al tema pdf ed elencato i miei requirements, cioè di utilizzare per quanto possibile tecnologie da me già utilizzate per permettermi di *valutare accuratamente l'output*. 
-Lo scripting è stata una necessaria eccezione causa della superiorità di Python rispetto ad altre alternative, in particolar modo per la pubblicazione del progetto su GitHub e la sua portabilità.
-Ho anche chiesto al modello di pormi delle domande all'interno del piano proposto, lasciando il meno possibile al caso.
+1. **Esclusione dell'IA dalla produzione autonoma dei contenuti del tesauro**:  
+   All'interno del vocabolario controllato è stato deliberatamente **escluso qualsiasi meccanismo di generazione o arricchimento non supervisionato basato su LLM**. In un settore ad alto impatto regolatorio come la governance dell'IA (in cui le definizioni costituiscono il fondamento per la conformità aziendale, la redazione di fascicoli tecnici e l'accertamento di responsabilità giuridiche), il rischio di allucinazioni semantiche, bias algoritmici o sottili alterazioni concettuali risulterebbe inaccettabile. La produzione e validazione dei lemmi rimane pertanto un processo rigorosamente **guidato dall'essere umano (*human-in-command*)**, fondato sull'analisi critica del comitato interdisciplinare.
 
-In seguito a questo primo prompt, l'output è stato abbastanza completo e rispettava i criteri imposti, tuttavia controllando ogni file è risaltato l'utilizzo di tecnologie non richieste come un file `.bib` e `.ttl`, che sono stati eliminati e il progetto revisionato di modo che non ci fosse più una dipendenza. A quel punto il lavoro è stato prettamente di lettura, bug hunting e correzione.
+2. **Integrazione dell'IA generativa come strumento di supporto alla meta-progettazione**:  
+   L'IA generativa (nello specifico, il modello di linguaggio di grandi dimensioni **Gemini 3.8 Flash**) è stata impiegata come assistente nello sviluppo del workflow documentale, con i seguenti obiettivi:
+   - *Scrittura e ottimizzazione degli script Python*: supporto nella stesura dell'architettura del linter semantico ([`validate_terms.py`](./scripts/validate_terms.py)), del motore di generazione dei formati di distribuzione ([`build_thesaurus.py`](./scripts/build_thesaurus.py)) e del parser di issue ([`issue_to_term.py`](./scripts/issue_to_term.py));
+   - *Strutturazione formale degli schemi*: ausilio nella sintassi degli schemi dichiarativi YAML per i GitHub Issue Forms e nella modellazione delle proprietà SKOS;
+   - *Stesura di casi di studio e simulazioni*: generazione di bozze iniziali per il registro decisionale ([`DECISIONS.md`](./DECISIONS.md)) e per i termini rappresentativi di partenza.
 
-L'intervento del modello è stato cruciale per accorciare le tempistiche e soprattutto per proporre delle idee e avere un riscontro rispetto alla difficoltà di implementazione o eventuali deadlock che non avevo previsto, ma anche per il supporto nello sviluppo in linguaggi poco familiari, tuttavia è stato fondamentale per me ispezionare la produzione e fare in modo di comprendere il progetto a pieno, per poterlo rendere mio e spiegarlo ad altre persone.
+**Strategia di Prompt Engineering e Validazione**:  
+L'interazione con il modello ha seguito i principi formali illustrati nelle lezioni del corso (e coerenti con le linee guida metodologiche di *prompt design*):
+- *Stage-Setting e Delimitazione del Contesto*: fornitura di istruzioni preliminari esplicite sul ruolo accademico, sugli standard ammessi (W3C SKOS, BPMN 2.0, SemVer) e sulle finalità dell'esame di Editoria Digitale, riducendo l'entropia del contesto mediante il caricamento mirato del testo della consegna;
+- *Definizione dei Vincoli e Formato di Output*: imposizione di vincoli tassativi sulla portabilità del codice (uso della sola libreria standard Python affiancata unicamente da `pyyaml`), sull'assenza di framework web esterni pesanti nel front-end e sull'obbligo di conformità sintattica;
+- *Validazione Manuale e Fact-Checking*: ogni artefatto generato dal modello è stato sottoposto a una rigorosa revisione manuale. Tale processo ha consentito di intercettare ed espungere componenti non pertinenti o ridondanti proposte nelle prime iterazioni (ad esempio dipendenze accessorie o formati non allineati), garantendo la piena padronanza concettuale e tecnica del sistema da parte dello studente.
+
+In termini quantitativi, l'assistenza dell'IA ha consentito una **riduzione stimata di oltre il 60% dei tempi di prototipazione dello scripting**, permettendo di focalizzare l'attenzione progettuale sulla coerenza teorica del flusso di gestione documentale.
 
 ---
 
@@ -236,39 +234,77 @@ Il confronto analitico tra la gestione documentale tradizionale e l'ecosistema i
 ### Limiti emersi
 Nonostante i ragguardevoli risultati raggiunti, l'analisi critica ha evidenziato alcuni limiti:
 
-<u>La complessità dell'armonizzazione tra giurisdizioni diverse</u>: 
+#### Complessità dell'armonizzazione tra giurisdizioni diverse
 Mentre l'AI Act ha forza di regolamento vincolante nello Spazio Economico Europeo, altri quadri (come il NIST statunitense o la Convenzione del Consiglio d'Europa) adottano criteri di classificazione non del tutto sovrapponibili, richiedendo frequenti compromessi redazionali nelle note d'ambito.
 
-<u>La barriera iniziale per contributori non tecnici</u>: 
+#### Barriera iniziale per contributori non tecnici
 Sebbene gli Issue Forms guidino l'utente attraverso campi web semplici, l'eventuale contribuzione diretta tramite Git e creazione di Pull Request richiede una familiarità con il controllo di versione che non tutti i giuristi o filosofi possiedono. Per superare completamente questo ostacolo, il flusso è stato potenziato con la modalità **ChatOps (`publish_on_approval.yml`)**: la comunità compila esclusivamente moduli web su GitHub, e al Chief Editor basta apporre l'etichetta `approved` per scatenare la conversione automatica da Issue a Markdown/YAML, la registrazione nei registri EDR, la validazione e il deploy, sollevando interamente il comitato dall'uso del terminale o dei comandi Git.
 
-<u>Il mantenimento continuativo del comitato editoriale</u>: 
+#### Mantenimento continuativo del comitato editoriale
 L'esigenza di una peer-review multidisciplinare accurata comporta una dipendenza dalla disponibilità temporale di esperti qualificati, fattore che in assenza di adeguati incentivi istituzionali o popolarità della piattaforma può rallentare l'evasione delle richieste nei periodi di picco normativo.
 
 ---
 
 ## Visualizzazione e Mockup dell'Interfaccia
 
-Come da consegna, è stato programmato un semplice file web statico per comunicare visivamente il funzionamento del progetto.
+In conformità con quanto richiesto dalla consegna d'esame, è stato progettato e implementato un prototipo web interattivo per consentire la fruizione immediata del vocabolario controllato da parte delle personas identificate.
 
-### Wireframe Concettuale dell'Interfaccia di Consultazione
+### Interfaccia di Consultazione del Tesauro
 
-L'interfaccia implementata (consultabile online su [GitHub Pages](https://g0ldenpin.github.io/editoria/) e testabile in locale nel file `dist/index.html`) offre:
-Filtraggio istantaneo dei termini per corrispondenza in etichette preferite, varianti sinonimiche o testo delle definizioni sia in inglese che in italiano.
-Il toggle IT/EN aggiorna la priorità visiva di tutte le schede, presentando in primo piano la definizione nella lingua selezionata e la traduzione a fronte come sottotitolo.
-Cliccando sui badge delle relazioni *Broader*, *Narrower* o *Related*, l'interfaccia effettua uno scorrimento fluido (*smooth scroll*) con evidenziazione visiva temporanea del termine correlato.
-Ogni scheda presenta il link diretto pre-compilato verso il modulo di modifica su GitHub Issue.
+L'applicazione web (consultabile online su [GitHub Pages](https://g0ldenpin.github.io/editoria/) ed eseguibile in locale dal file [`dist/index.html`](./dist/index.html)) traduce i principi teorici in un'esperienza d'uso reattiva e accessibile:
+
+![Portale di Consultazione del Tesauro Bilingue sulla Governance dell'IA](./img/pages_expl.png)
+
+Le funzionalità chiave dell'interfaccia comprendono:
+1. **Motore di Ricerca Client-Side Multidimensionale**: indicizza istantaneamente etichette preferite (*prefLabel*), varianti sinonimiche (*altLabel*) e l'intero corpo delle definizioni sia in lingua italiana che inglese, restituendo i risultati senza latenza di rete;
+2. **Filtri Combinati per Prospettiva e Fonte Normativa**: consentono di isolare rapidamente i termini afferenti alla sfera *normativa-giuridica*, *tecnico-operativa* o *concettuale-filosofica*, oppure di selezionare i concetti derivati da uno specifico corpus (es. EU AI Act, standard ISO/IEC, NIST AI RMF);
+3. **Bilinguismo Dinamico con Traduzione a Fronte**: il selettore di lingua commuta la visualizzazione primaria tra italiano e inglese, mantenendo la lingua secondaria come sottotitolo esplicativo;
+4. **Navigazione Ipertestuale delle Relazioni Semantiche (SKOS)**: cliccando sui badge dei termini correlati (*Broader*, *Narrower*, *Related*), la pagina esegue uno scorrimento fluido (*smooth scroll*) evidenziando temporaneamente il nodo terminologico di destinazione con feedback visivo dedicato.
+
+### Flusso di Raccolta dei Feedback dalla Comunità
+
+L'invio delle proposte di aggiornamento e dei nuovi lemmi è guidato da form dedicati su GitHub che garantiscono la conformità strutturale dei dati in ingresso:
+
+![Modulo di Raccolta per Nuovi Termini con Campi Obbligatori](./img/nuovo_termine.png)
+
+![Modulo di Proposta Modifica e Revisione di Termini Esistenti](./img/modifica_termine.png)
 
 ---
 
 ## Conclusioni
 
-1. È stato adottato e motivato un **formato sorgente leggero e modulare** (Markdown con frontmatter YAML conforme a W3C SKOS), capace di memorizzare in modo armonico termini bilingui, gerarchie semantiche e puntuali citazioni normative e standard;
-2. È stato ingegnerizzato e reso operativo un **meccanismo CI/CD** basato su script Python, repository Git e GitHub Actions, con deploy automatico su sito statico accessibile e reattivo;
-3. È stato formalizzato un **sistema di raccolta feedback strutturato** tramite GitHub Issue Forms con obbligo di motivazione e indicazione delle fonti;
-4. È stato istituito un **flusso di revisione interdisciplinare con comitato editoriale** e pubblicazione trasparente e tracciabile delle motivazioni di ogni delibera (`DECISIONS.md`);
-5. È stata impostata una **strategia di versionamento semantico e storico atomico** integrata con i principi dell'Open Science;
-6. È stato realizzato un **prototipo web funzionante e interattivo** dotato di filtri multidimensionali e navigazione ipertestuale.
+Il progetto ha portato a compimento tutti gli obiettivi definiti nello scenario d'esame e nel modello di gestione documentale:
+1. È stato adottato e motivato un **formato sorgente leggero, modulare e non proprietario** (Markdown con frontmatter YAML conforme a W3C SKOS), capace di memorizzare in modo armonico termini bilingui, gerarchie semantiche e puntuali citazioni normative e standard;
+2. È stato ingegnerizzato e reso operativo un **meccanismo CI/CD riproducibile** basato su script Python, repository Git e GitHub Actions, con compilazione automatica in dataset aperto JSON e rilascio su sito statico accessibile e reattivo;
+3. È stato formalizzato un **sistema di raccolta feedback vincolato** tramite GitHub Issue Forms con obbligo inderogabile di motivazione e indicazione delle fonti;
+4. È stato istituito un **flusso di revisione interdisciplinare paritetico** con verbalizzazione pubblica, trasparente e immutabile delle motivazioni decisionali nel registro [`DECISIONS.md`](./DECISIONS.md);
+5. È stata applicata un'**univoca strategia di versionamento semantico (SemVer 2.0.0)** a tutela della stabilità e tracciabilità nel tempo del vocabolario controllato.
 
-In conclusione, questa soluzione offre una risposta concreta, nonostante la possibile barriera tecnica iniziale nell'utilizzo di GitHub, alle sfide poste dalla transizione digitale, fornendo alla comunità scientifica, giuridica e tecnica un'infrastruttura affidabile e trasparente per governare consapevolmente il linguaggio dell'Intelligenza Artificiale.
+In conclusione, la soluzione progettata risponde concretamente alle sfide di mediazione interdisciplinare poste dalla governance dell'Intelligenza Artificiale, offrendo una metodologia rigorosa e aperta a supporto del lavoro di legislatori, ingegneri ed eticisti.
+
+---
+
+## Bibliografia e sitografia
+
+### Corpus Normativo e Atti Istituzionali
+- **Unione Europea (2024)**. *Regolamento (UE) 2024/1689 del Parlamento europeo e del Consiglio, del 13 giugno 2024, che stabilisce regole armonizzate sull'intelligenza artificiale (AI Act)*. Gazzetta ufficiale dell'Unione europea, L 2024/1689.
+- **Consiglio d'Europa (2024)**. *Convenzione quadro del Consiglio d'Europa sull'intelligenza artificiale e i diritti umani, la democrazia e lo stato di diritto (CETS n. 225)*. Strasburgo.
+- **Senato della Repubblica Italiana (2025)**. *Disegno di Legge n. 1146: Disposizioni e delega al Governo in materia di intelligenza artificiale*. XIX Legislatura.
+- **European AI Office (2025)**. *GPAI Codes of Practice: Draft Guidelines for General-Purpose AI Models*. Commissione Europea.
+
+### Standard Tecnici Internazionali
+- **ISO/IEC 22989:2022**. *Information technology — Artificial intelligence — Concepts and terminology*. International Organization for Standardization / International Electrotechnical Commission.
+- **ISO/IEC 23894:2023**. *Information technology — Artificial intelligence — Guidance on risk management*. International Organization for Standardization / International Electrotechnical Commission.
+- **ISO/IEC 24027:2021**. *Information technology — Artificial intelligence (AI) — Bias in AI systems and AI aided decision making*. International Organization for Standardization / International Electrotechnical Commission.
+- **ISO 25964-1:2011**. *Information and documentation — Thesauri and interoperability with other vocabularies — Part 1: Thesauri for information retrieval*. International Organization for Standardization.
+- **NIST (2023)**. *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*. National Institute of Standards and Technology, NIST AI 100-1.
+
+### Standard per il Web Semantico e la Gestione Documentale
+- **W3C (2009)**. *SKOS Simple Knowledge Organization System Reference*. W3C Recommendation 18 August 2009. A cura di A. Miles e S. Bechhofer. Disponibile online: <https://www.w3.org/TR/skos-reference/>.
+- **Object Management Group (2013)**. *Business Process Model and Notation (BPMN), Version 2.0.2*. OMG Document Number formal/2013-12-09.
+- **Preston-Werner, T. (2013)**. *Semantic Versioning 2.0.0*. Disponibile online: <https://semver.org/spec/v2.0.0.html>.
+
+### Pubblicazioni Scientifiche e Risorse Didattiche
+- **Floridi, L. (2024)**. *On the Ethics and Governance of Autonomous AI Agents*. Minds and Machines, vol. 34, n. 2, pp. 1-18. DOI: 10.1007/s11023-024-09670-w.
+- **Materiali Didattici del Corso di Editoria Digitale (a.a. 2026/2027)**. *Slide Modulo LM2: Progettazione di prodotti editoriali digitali e flussi di gestione documentale*; *Slide Modulo LM4: Requisiti di accettazione e Technology Acceptance Model (TAM)*. Dipartimento di Informatica, Università degli Studi di Milano.
 

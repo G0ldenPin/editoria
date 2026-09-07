@@ -638,8 +638,7 @@ def main():
     Crea la cartella di output 'dist/' se non esiste già;
     Carica e unifica tutti i termini Markdown da 'data/terms/';
     Esporta l'indice strutturato 'dist/thesaurus.json';
-    Compila l'applicazione web interattiva 'dist/index.html' (pronta per GitHub Pages);
-    Crea una copia sincronizzata in 'web_mockup/index.html' per consultazione locale.
+    Compila l'applicazione web interattiva 'dist/index.html' (pronta per consultazione e GitHub Pages).
     """
     print("=" * 70)
     print("COMPILAZIONE ARTEFATTI DEL TESAURO SULLA GOVERNANCE DELL'IA")
@@ -666,12 +665,6 @@ def main():
     # SAFEGUARD JEKYLL
     nojekyll_path = os.path.join(DIST_DIR, ".nojekyll")
     open(nojekyll_path, "w", encoding="utf-8").close()
-    
-    # backup locale
-    web_mockup_dir = os.path.join(ROOT_DIR, "web_mockup")
-    os.makedirs(web_mockup_dir, exist_ok=True)
-    mockup_html_path = os.path.join(web_mockup_dir, "index.html")
-    build_web_portal(terms, mockup_html_path)
     
     print("=" * 70)
     print("BUILD COMPLETATA CON SUCCESSO!")
