@@ -7,12 +7,14 @@ course: Editoria Digitale
 tags: Governance dell'IA, Tesauro Bilingue
 version: 1.0
 kind: Document
+bibliography: bibliografia.bib
+csl: IEEE.csl
 ---
 
 ![Logo UNIMI](./img/LogoHeader.jpg){width=100px height=100px}
 
 # Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
-Armonizzazione delle prospettive normativa-giuridica, tecnico-operativa ed etico-filosofica tramite W3C SKOS e pubblicazione continua.
+### Armonizzazione delle prospettive normativa-giuridica, tecnico-operativa ed etico-filosofica tramite W3C SKOS e pubblicazione continua
 
 **Repository del Progetto**: [https://github.com/G0ldenPin/editoria](https://github.com/G0ldenPin/editoria)
 
@@ -23,11 +25,11 @@ Armonizzazione delle prospettive normativa-giuridica, tecnico-operativa ed etico
 Il presente progetto affronta la progettazione e l'implementazione documentale di un **workflow editoriale digitale aperto, trasparente e riproducibile** finalizzato alla creazione, manutenzione e pubblicazione continua di un **tesauro bilingue (inglese-italiano) dedicato alla governance dell'Intelligenza Artificiale (IA)**.
 
 Nel contesto odierno, la rapida evoluzione dei sistemi algoritmici genera frequenti disallineamenti semantici e concettuali tra tre comunità fondamentali:
-1. La comunità **normativo-giuridica**, impegnata nell'interpretazione e applicazione del quadro regolatorio europeo (Regolamento UE 2024/1689 - *AI Act*), della Convenzione quadro del Consiglio d'Europa (CETS 225) e delle normative nazionali (Disegno di Legge italiano sull'IA del 2025);
-2. La comunità **tecnico-operativa**, che progetta e verifica i sistemi secondo gli standard internazionali di riferimento, in particolare ISO/IEC 22989:2022 (*Concepts and terminology*), ISO/IEC 23894:2023 (*AI Risk Management*) e il *NIST AI Risk Management Framework (AI RMF 1.0)*;
+1. La comunità **normativo-giuridica**, impegnata nell'interpretazione e applicazione del quadro regolatorio europeo (Regolamento UE 2024/1689 - *AI Act* [@euaiact2024]), della Convenzione quadro del Consiglio d'Europa (CETS 225 [@coe2024]) e delle normative nazionali (Disegno di Legge italiano sull'IA del 2025 [@ddl_ai2025]);
+2. La comunità **tecnico-operativa**, che progetta e verifica i sistemi secondo gli standard internazionali di riferimento, in particolare ISO/IEC 22989:2022 (*Concepts and terminology* [@iso22989]), ISO/IEC 23894:2023 (*AI Risk Management* [@iso23894]) e il *NIST AI Risk Management Framework (AI RMF 1.0* [@nist_airmf]);
 3. La comunità **concettuale-filosofica**, focalizzata sulle implicazioni etiche, sui concetti emergenti (es. *IA agentica*, autonomia operativa, allineamento) e sulla salvaguardia della dignità e della supervisione umana (*Human Oversight*).
 
-L'**obiettivo primario** del progetto è trasformare il tesauro da statico glossario a **prodotto editoriale dinamico e "vivo"**, capace di evolvere in modo controllato attraverso il contributo degli esperti. Il flusso documentale progettato garantisce l'adozione di un formato sorgente leggero, versionabile e interoperabile basato su **Markdown con metadati strutturati YAML conformi allo standard semantico W3C SKOS** (*Simple Knowledge Organization System*);
+L'**obiettivo primario** del progetto è trasformare il tesauro da statico glossario a **prodotto editoriale dinamico e "vivo"**, capace di evolvere in modo controllato attraverso il contributo degli esperti. Il flusso documentale progettato garantisce l'adozione di un formato sorgente leggero, versionabile e interoperabile basato su **Markdown con metadati strutturati YAML conformi allo standard semantico W3C SKOS** (*Simple Knowledge Organization System* [@w3c_skos]);
 - L'automazione end-to-end del processo di validazione, compilazione e pubblicazione web tramite **Git, GitHub Actions e GitHub Pages**;
 - Un meccanismo formale di raccolta e revisione dei contributi della comunità basato su **GitHub Issue Forms** con obbligo inderogabile di motivazione e indicazione delle fonti normative e standard;
 - Un modello di governance editoriale interdisciplinare con **pubblicazione trasparente delle giustificazioni decisionali** archiviate in un registro pubblico immutabile (*Editorial Decision Records - EDR*);
@@ -57,14 +59,14 @@ Per orientare la progettazione editoriale e soddisfare i principi della *User Ex
 
 > **Prof.ssa Sofia Conti (Area Etico-Filosofica e Ricerca)**  
 > *Ruolo*: Docente universitaria di Etica delle Tecnologie Emergenti e membro di comitati etici indipendenti.  
-> *Bisogni*: Studia l'evoluzione terminologica delle nuove frontiere dell'autonomia artificiale (*Agentic AI*). Vuole proporre l'inclusione di nuovi termini emergenti con solide argomentazioni teoriche e monitorare la trasparenza delle scelte lessicali.  
+> *Bisogni*: Studia l'evoluzione terminologica delle nuove frontiere dell'autonomia artificiale (*Agentic AI* [@floridi2024]). Vuole proporre l'inclusione di nuovi termini emergenti con solide argomentazioni teoriche e monitorare la trasparenza delle scelte lessicali.  
 > *Scenario d'uso*: Riscontra l'assenza di una variante terminologica essenziale relativa all'autonomia deliberativa degli agenti software. Accede al repository del tesauro, apre una proposta strutturata tramite l'Issue Form indicando fonti bibliografiche e motivazione, e partecipa alla peer-review pubblica con il comitato editoriale.
 
 ### Requisiti di accettazione
-L'adozione del tesauro è stata modellata attraverso i costrutti del **Technology Acceptance Model (TAM)**:
+L'adozione del tesauro è stata modellata attraverso i costrutti del **Technology Acceptance Model (TAM [@ceravolo2025])**:
 
 **Utilità Percepita (Perceived Usefulness - PU)**:  
-I termini sono corroborati da puntuali riferimenti normativi (articoli di legge) e standard internazionali (clausole ISO/NIST), eliminando il rischio di definizioni arbitrarie. Il motore di ricerca e i filtri bilingui consentono a giuristi e tecnici di reperire definizioni e relazioni semantiche in pochi secondi, riducendo i tempi di redazione degli atti e dei fascicoli tecnici. L'adozione dello standard **W3C SKOS** assicura che il tesauro non sia un prodotto isolato, ma una risorsa interoperabile inserita nella rete dei *Linked Open Data*.
+I termini sono corroborati da puntuali riferimenti normativi (articoli di legge) e standard internazionali (clausole ISO/NIST), eliminando il rischio di definizioni arbitrarie. Il motore di ricerca e i filtri bilingui consentono a giuristi e tecnici di reperire definizioni e relazioni semantiche in pochi secondi, riducendo i tempi di redazione degli atti e dei fascicoli tecnici. L'adozione dello standard **W3C SKOS** [@w3c_skos] assicura che il tesauro non sia un prodotto isolato, ma una risorsa interoperabile inserita nella rete dei *Linked Open Data*.
 
 **Facilità d'Uso Percepita (Perceived Ease of Use - PEOU)**:  
 L'interfaccia pubblica adotta pattern visivi consolidati (tessere concettuali, tag colorati per prospettiva, navigazione ipertestuale delle relazioni BT/NT/RT). La scelta del formato sorgente **Markdown con YAML frontmatter** permette anche a profili non strettamente informatici di visualizzare e proporre termini senza dover apprendere complesse sintassi XML o linguaggi ontologici proprietari. I contenuti risiedono in file di testo puro UTF-8 gestiti tramite Git, liberando l'iniziativa da qualsiasi lock-in verso piattaforme proprietarie.
@@ -85,7 +87,7 @@ La diffusione del prodotto editoriale persegue una strategia di **multicanalità
 
 #### Identità Visuale, Stile Tipografico e Standard Documentali
 In aderenza alle linee guida di progettazione editoriale, il prodotto adotta uno **stile formale, sobrio e istituzionale**, bilanciando il rigore scientifico con l'usabilità moderna:
-- **Classi di documento standard**: Il progetto adotta come modello teorico lo standard internazionale **ISO 25964** (*Thesauri and interoperability with other vocabularies*) per l'articolazione delle relazioni gerarchiche (*Broader/Narrower*), associative (*Related*) e di equivalenza (*prefLabel/altLabel*), mappate direttamente sullo standard per il web semantico **W3C SKOS** (*Simple Knowledge Organization System*).
+- **Classi di documento standard**: Il progetto adotta come modello teorico lo standard internazionale **ISO 25964** (*Thesauri and interoperability with other vocabularies* [@iso25964]) per l'articolazione delle relazioni gerarchiche (*Broader/Narrower*), associative (*Related*) e di equivalenza (*prefLabel/altLabel*), mappate direttamente sullo standard per il web semantico **W3C SKOS** (*Simple Knowledge Organization System* [@w3c_skos]).
 - **Tipografia**: Per il portale web è stato adottato il carattere geometrico ad alta leggibilità a schermo **Outfit** (pesi da 300 a 800), con interlinea generosa (1.6) e contrasto ottimizzato conforme alle linee guida sull'accessibilità **WCAG 2.1 livello AA**. Per la documentazione cartacea (PDF), Pandoc impiega font con grazie ad alta leggibilità tipografica (*Computer Modern* o *Latin Modern*).
 - **Palette cromatica funzionale**: L'identità visiva sfrutta una palette Flat UI semantica: il verde petrolio/teal (`#16A085` / `#1ABC9C`) come colore primario di riferimento istituzionale; il giallo solare (`#F1C40F`) e l'arancio caldo (`#E67E22`) per evidenziare le aree tecnico-filosofiche; il rosso corallo (`#E74C3C`) riservato ai pulsanti d'azione interattiva (*Call-to-Action* per la proposta di revisione). Sfondo chiaro a basso affaticamento visivo (`#F4F8F7`).
 - **Adesione a modelli consolidati vs Innovazione**: Il tesauro rispetta rigorosamente i modelli terminologici consolidati per trasmettere autorevolezza alle autorità di vigilanza, ma introduce innovazione radicale nel **processo di fruizione**, abbattendo la staticità del PDF tradizionale mediante navigazione ipertestuale fluida tra concetti e ricerca client-side in tempo reale.
@@ -108,7 +110,7 @@ L'acquisizione delle fonti viene così divisa:
 L'acquisizione delle fonti può essere automatizzata solo se la fonte stessa rispetta i criteri di `validate_terms.py` e dunque sarà molto rara.
 
 ### Gestione documentale
-Il flusso di gestione documentale è stato modellato in conformità con lo standard internazionale **BPMN 2.0 (Business Process Model and Notation - ISO/IEC 19510:2013)** promosso da OMG. 
+Il flusso di gestione documentale è stato modellato in conformità con lo standard internazionale **BPMN 2.0 (Business Process Model and Notation - ISO/IEC 19510:2013)** promosso da OMG [@omg_bpmn]. 
 
 La modellazione formale è stata realizzata tramite l'editor aperto [bpmn.io](https://bpmn.io). Nel repository di progetto sono inclusi sia il sorgente ([`diagram.bpmn`](./diagram.bpmn)), sia la sua resa grafica vettoriale ad alta definizione ([`img/diagram.svg`](./img/diagram.svg)), integrata di seguito.
 
@@ -286,25 +288,6 @@ In conclusione, la soluzione progettata risponde concretamente alle sfide di med
 
 ## Bibliografia e sitografia
 
-### Corpus Normativo e Atti Istituzionali
-- **Unione Europea (2024)**. *Regolamento (UE) 2024/1689 del Parlamento europeo e del Consiglio, del 13 giugno 2024, che stabilisce regole armonizzate sull'intelligenza artificiale (AI Act)*. Gazzetta ufficiale dell'Unione europea, L 2024/1689.
-- **Consiglio d'Europa (2024)**. *Convenzione quadro del Consiglio d'Europa sull'intelligenza artificiale e i diritti umani, la democrazia e lo stato di diritto (CETS n. 225)*. Strasburgo.
-- **Senato della Repubblica Italiana (2025)**. *Disegno di Legge n. 1146: Disposizioni e delega al Governo in materia di intelligenza artificiale*. XIX Legislatura.
-- **European AI Office (2025)**. *GPAI Codes of Practice: Draft Guidelines for General-Purpose AI Models*. Commissione Europea.
-
-### Standard Tecnici Internazionali
-- **ISO/IEC 22989:2022**. *Information technology — Artificial intelligence — Concepts and terminology*. International Organization for Standardization / International Electrotechnical Commission.
-- **ISO/IEC 23894:2023**. *Information technology — Artificial intelligence — Guidance on risk management*. International Organization for Standardization / International Electrotechnical Commission.
-- **ISO/IEC 24027:2021**. *Information technology — Artificial intelligence (AI) — Bias in AI systems and AI aided decision making*. International Organization for Standardization / International Electrotechnical Commission.
-- **ISO 25964-1:2011**. *Information and documentation — Thesauri and interoperability with other vocabularies — Part 1: Thesauri for information retrieval*. International Organization for Standardization.
-- **NIST (2023)**. *Artificial Intelligence Risk Management Framework (AI RMF 1.0)*. National Institute of Standards and Technology, NIST AI 100-1.
-
-### Standard per il Web Semantico e la Gestione Documentale
-- **W3C (2009)**. *SKOS Simple Knowledge Organization System Reference*. W3C Recommendation 18 August 2009. A cura di A. Miles e S. Bechhofer. Disponibile online: <https://www.w3.org/TR/skos-reference/>.
-- **Object Management Group (2013)**. *Business Process Model and Notation (BPMN), Version 2.0.2*. OMG Document Number formal/2013-12-09.
-- **Preston-Werner, T. (2013)**. *Semantic Versioning 2.0.0*. Disponibile online: <https://semver.org/spec/v2.0.0.html>.
-
-### Pubblicazioni Scientifiche e Risorse Didattiche
-- **Floridi, L. (2024)**. *On the Ethics and Governance of Autonomous AI Agents*. Minds and Machines, vol. 34, n. 2, pp. 1-18. DOI: 10.1007/s11023-024-09670-w.
-- **Materiali Didattici del Corso di Editoria Digitale (a.a. 2026/2027)**. *Slide Modulo LM2: Progettazione di prodotti editoriali digitali e flussi di gestione documentale*; *Slide Modulo LM4: Requisiti di accettazione e Technology Acceptance Model (TAM)*. Dipartimento di Informatica, Università degli Studi di Milano.
+::: {#refs}
+:::
 

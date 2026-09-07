@@ -9,6 +9,8 @@ Progetto per la progettazione e documentazione di un **workflow editoriale digit
 ### Mappa dei File del Progetto
 
 - **`relazione_esame.md`**: Relazione accademica completa redatta secondo il modello di relazione fornito su Ariel.
+- **`bibliografia.bib`**: Database bibliografico strutturato in formato BibTeX contenente le fonti normative, standard internazionali e riferimenti didattici del progetto.
+- **`IEEE.csl`**: Foglio di stile XML conforme allo standard aperto Citation Style Language per la resa citazionale numerica IEEE tramite Pandoc/Citeproc.
 - **`diagram.bpmn`**: Modello formale del processo editoriale in formato standard XML **BPMN 2.0 (ISO/IEC 19510:2013)** generato tramite [bpmn.io](https://bpmn.io).
 - **`img/`**: Cartella contenente le risorse grafiche e gli asset visivi del progetto:
   - `diagram.svg`: Grafica vettoriale del diagramma BPMN 2.0 ad alta risoluzione.
