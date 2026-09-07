@@ -4,15 +4,23 @@ author: "[Elijah Lisa Bassetti, Matricola: 44464A]"
 date: a.a. 2026/2027
 institute: Università degli Studi di Milano
 course: Editoria Digitale
-tags: Governance dell'IA, Tesauro Bilingue, W3C SKOS, Flusso Editoriale, Git, CI/CD, Multicanalità
+tags: Governance dell'IA, Tesauro Bilingue
 version: 1.0
 kind: Document
 ---
 
 ![Logo UNIMI](./img/LogoHeader.jpg)
 
-# Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
-### Armonizzazione delle dimensioni normativa, tecnico-operativa e concettuale attraverso Git, W3C SKOS e pubblicazione continua
+<div align="center">
+<h2>
+Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
+</h2>
+
+<button>
+<a href="https://github.com/G0ldenPin/editoria">repository GitHub</a>
+</button>
+
+</div>
 
 ---
 
