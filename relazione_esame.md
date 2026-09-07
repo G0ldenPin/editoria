@@ -12,7 +12,7 @@ kind: Document
 ![Logo UNIMI](./img/LogoHeader.jpg){width=100px height=100px}
 
 # Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
-### Armonizzazione delle prospettive normativa-giuridica, tecnico-operativa ed etico-filosofica tramite W3C SKOS e pubblicazione continua
+Armonizzazione delle prospettive normativa-giuridica, tecnico-operativa ed etico-filosofica tramite W3C SKOS e pubblicazione continua.
 
 **Repository del Progetto**: [https://github.com/G0ldenPin/editoria](https://github.com/G0ldenPin/editoria)
 
