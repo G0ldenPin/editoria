@@ -1,14 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-================================================================================
-PROGETTO D'ESAME DI EDITORIA DIGITALE - UNIVERSITÀ DEGLI STUDI DI MILANO
-Script: validate_terms.py
-Descrizione: Linter e validatore automatico per il Tesauro sulla Governance dell'IA.
-================================================================================
-SCOPO NELL'ARCHITETTURA EDITORIALE:
-Questo script automatizza la fase di "Quality Assurance" e Fact-Checking formale
-nella pipeline di Continuous Integration (GitHub Actions).
+Questo script automatizza la fase di fact-checking formale per la pipeline CI/CD (GitHub Actions).
 Viene eseguito ad ogni commit o Pull Request per impedire l'inclusione di:
   1. File privi di frontmatter YAML o con errori di sintassi;
   2. Termini privi della simmetria bilingue obbligatoria (EN / IT);
@@ -17,10 +10,9 @@ Viene eseguito ad ogni commit o Pull Request per impedire l'inclusione di:
 
 USO DA TERMINALE:
   python scripts/validate_terms.py
-ESITO:
+OUTPUT:
   - Exit Code 0: Tutti i controlli sono superati (la CI procede al rilascio).
   - Exit Code 1: Uno o più vincoli sono violati (la CI blocca il merge).
-================================================================================
 """
 
 import os
