@@ -11,7 +11,7 @@ bibliography: bibliografia.bib
 csl: IEEE.csl
 ---
 
-![Logo UNIMI](./img/LogoHeader.jpg){width=100px height=100px}
+![Logo UNIMI](./img/LogoHeader.jpg)
 
 # Progettazione e Documentazione di un Workflow Editoriale per un Tesauro Bilingue sulla Governance dell'Intelligenza Artificiale
 ### Armonizzazione delle prospettive normativa-giuridica, tecnico-operativa ed etico-filosofica tramite W3C SKOS e pubblicazione continua
